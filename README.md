@@ -1,1 +1,4 @@
-# project_d1t2b_i4l3b_y5l3b
+# Project of Group 27
+## A database application in the domain of Formula 1 (F1)
+
+- We will model the aspects of F1, including races (specifically arranged for F1), circuits (the location where a race takes place), constructors (i.e. the racing teams), team members (i.e. racing drivers and team principles) and cars (e.g. racing cars and the safety car). Moreover, we will also store additional information such as F1 official staff, sponsors and broadcasters. 
