@@ -27,7 +27,7 @@ CREATE TABLE Constructors(
 );
 
 CREATE TABLE Sponsorship(
-    name CHAR[15] PRIMARY KEY
+    name CHAR[50] PRIMARY KEY
 );
 
 CREATE TABLE Sponsor(
