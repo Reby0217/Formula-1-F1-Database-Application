@@ -83,5 +83,79 @@ CREATE TABLE OwnCars(
     FOREIGN KEY(constructor_name) REFERENCES Constructors
 );
 
+CREATE TABLE RacingCars(
+    name CHAR PRIMARY KEY
+);
+
+CREATE TABLE DriveSafetyCars(
+    safetycar_name CHAR PRIMARY KEY,
+    safetycar_driver CHAR UNIQUE,
+    brand_name CHAR,
+    FOREIGN KEY(safetycar_name) REFERENCES OwnCars(car_name) ON DELETE CASCADE,
+    FOREIGN KEY(safetycar_driver) REFERENCES 
+    SafetyCarDriver(name) ON DELETE CASCADE
+);
+
+CREATE TABLE HaveResults(
+    result_id INTEGER,
+    race_date DATE,
+    grid_position INTEGER,
+    rank INTEGER,
+    time TIME,
+    status CHAR,
+    PRIMARY KEY(result_id,race_date),
+    FOREIGN KEY(race_date) REFERENCES Races(date) ON DELETE CASCADE    
+);
+
+CREATE TABLE OfficialStaff(
+    name CHAR(30) PRIMARY KEY
+);
+
+CREATE TABLE SafetyCarDriver(
+    name CHAR(30) PRIMARY KEY
+);
+
+CREATE TABLE President(
+    name CHAR(30) PRIMARY KEY,
+    start_date date,
+    FOREIGN KEY(name) REFERENCES OfficialStaff(name) ON DELETE CASCADE 
+);
+
+CREATE TABLE Workfor(
+    officialstaff_name CHAR(30),
+    race_date DATE,
+    PRIMARY KEY(officialstaff_name,race_date),
+    FOREIGN KEY(officialstaff_name) REFERENCES 
+    OfficialStaff(name) ON DELETE CASCADE,
+    FOREIGN KEY(race_date) REFERENCES Races(date) ON DELETE CASCADE
+);
+
+CREATE TABLE Broadcasters(
+    name CHAR(30) PRIMARY KEY
+);
+
+CREATE TABLE Broadcast(
+    race_date DATE,
+    broadcasters_name CHAR(30),
+    PRIMARY KEY(race_date, broadcasters_name),
+    FOREIGN KEY(race_date) REFERENCES Races(date) ON DELETE CASCADE,
+    FOREIGN KEY(broadcasters_name) REFERENCES 
+    Broadcasters(name) ON DELETE CASCADE
+);
+
+CREATE TABLE Participate(
+    race_date DATE,
+    racingcar_name CHAR(30),
+    racingdriver_dob DATE,
+    racingdriver_firstname CHAR(20),
+    racingdriver_lastname CHAR(20),
+    PRIMARY KEY(race_date, racingcar_name, racingdriver_dob, 
+    racingdriver_firstname, racingdriver_lastname),
+    FOREIGN KEY(race_date) REFERENCES Race(date) ON DELETE CASCADE,
+    FOREIGN KEY(racingcar_name) REFERENCES Racingcars(name) ON DELETE CASCADE,
+    FOREIGN KEY(racingdriver_dob,racingdriver_firstname,
+    racingdriver_lastname) REFERENCES Racingdrivers(date_of_birth, 
+    first_name, last_name) ON DELETE CASCADE
+);
 
 
