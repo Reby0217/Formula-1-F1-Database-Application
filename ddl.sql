@@ -32,7 +32,7 @@ CREATE TABLE Sponsorship(
 
 CREATE TABLE Sponsor(
     constructor_name CHAR[15],
-    sponsorship_name CHAR[15]
+    sponsorship_name CHAR[50],
     PRIMARY KEY(constructor_name,sponsorship_name),
     FOREIGN KEY(constructor_name) REFERENCES Constructors,
     FOREIGN KEY(sponsorship_name) REFERENCES Sponsorship
