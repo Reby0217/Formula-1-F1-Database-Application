@@ -18,7 +18,7 @@ CREATE TABLE RacesTakePlace(
     lap_numbers integer, 
     circuit_name CHAR[15],
     FOREIGN KEY(circuit_name) REFERENCES Circuit_2
-    );
+);
 
 CREATE TABLE Constructors(
     name CHAR[15] PRIMARY KEY,
@@ -73,7 +73,7 @@ CREATE TABLE Drive(
     racingdriver_lastname CHAR[15],
     PRIMARY KEY(racingcar_name, racingdriver_dob,racingdriver_firstname, racingdriver_lastname),
     FOREIGN KEY(racingcar_name) REFERENCES RaceingCars,
-    FOREIGN KEY(racingdriver_dob,racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers
+    FOREIGN KEY(racingdriver_dob, racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers
 );
 
 CREATE TABLE OwnCars(
@@ -89,18 +89,23 @@ CREATE TABLE RacingCars(
 
 CREATE TABLE DriveSafetyCars(
     safetycar_name CHAR PRIMARY KEY,
-    safetycar_driver CHAR UNIQUE,
+    safetycar_driver CHAR UNIQUE NOT NULL,
     brand_name CHAR,
     FOREIGN KEY(safetycar_name) REFERENCES OwnCars(car_name) ON DELETE CASCADE,
     FOREIGN KEY(safetycar_driver) REFERENCES 
     SafetyCarDriver(name) ON DELETE CASCADE
 );
 
-CREATE TABLE HaveResults(
+CREATE TABLE HaveResults1(
+    time TIME PRIMARY KEY,
+    rank INTEGER,
+    status CHAR, 
+);
+
+CREATE TABLE HaveResults2(
     result_id INTEGER,
     race_date DATE,
     grid_position INTEGER,
-    rank INTEGER,
     time TIME,
     status CHAR,
     PRIMARY KEY(result_id,race_date),
