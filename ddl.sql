@@ -99,7 +99,6 @@ CREATE TABLE DriveSafetyCars(
 CREATE TABLE HaveResults1(
     time TIME PRIMARY KEY,
     rank INTEGER,
-    status CHAR, 
 );
 
 CREATE TABLE HaveResults2(
