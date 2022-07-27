@@ -5,11 +5,11 @@
 <br>
 <br>
 
-| Name         | StudentNumber     | CS Alias(Userid) | Prefered Email Adress |
-|--------------|-------------------|------------------|-----------------------|
+| Name         | StudentNumber     | CS Alias(Userid) | Preferred E-mail Address |
+|--------------|-------------------|------------------|--------------------------|
 | Kaiyu Yang   | 36591923          | d1t2b            |qdkaiyu@students.cs.ubc.ca|
-| Kejia Liu    | 16752370          | y5l3b            |liukejia201909@163.com | 
-| Xinyi Dou    | 84855964          | i4l3b            |douxinyi0142@gmail.com |
+| Kejia Liu    | 16752370          | y5l3b            |liukejia201909@163.com    | 
+| Xinyi Dou    | 84855964          | i4l3b            |douxinyi0142@gmail.com    |
 
 <br>
 <br>
