@@ -125,7 +125,7 @@ CREATE TABLE President(
     FOREIGN KEY(president_name) REFERENCES OfficialStaff ON DELETE CASCADE 
 );
 
-CREATE TABLE Workfor(
+CREATE TABLE WorkFor(
     officialstaff_name CHAR(30),
     race_date DATE,
     PRIMARY KEY(officialstaff_name, race_date),
