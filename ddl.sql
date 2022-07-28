@@ -1,6 +1,6 @@
 CREATE TABLE Circuit_1(
     city CHAR[15] PRIMARY KEY,
-    time_zone CHAR[15],
+    time_zone CHAR[15]
 );
 
 CREATE TABLE Circuit_2(
