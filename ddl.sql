@@ -5,29 +5,29 @@ CREATE TABLE Circuit_1(
 
 CREATE TABLE Circuit_2(
     city CHAR[15],
-    name CHAR[15] PRIMARY KEY,
+    circuit_name CHAR[15] PRIMARY KEY,
     country CHAR[15]
     longitude REAL,
     latitude REAL
 );
 
 CREATE TABLE RacesTakePlace(
-    date  DATE PRIMARY KEY, 
-    name  CHAR[15], 
-    round INTEGER, 
+    race_date  DATE PRIMARY KEY, 
+    race_name  CHAR[15], 
+    round_number INTEGER, 
     lap_numbers integer, 
     circuit_name CHAR[15],
     FOREIGN KEY(circuit_name) REFERENCES Circuit_2
 );
 
 CREATE TABLE Constructors(
-    name CHAR[15] PRIMARY KEY,
+    constructors_name CHAR[15] PRIMARY KEY,
     nationality CHAR[15],
     city CHAR[15]
 );
 
 CREATE TABLE Sponsorship(
-    name CHAR[50] PRIMARY KEY
+    sponsorship_name CHAR[50] PRIMARY KEY
 );
 
 CREATE TABLE Sponsor(
@@ -79,12 +79,12 @@ CREATE TABLE Drive(
 CREATE TABLE OwnCars(
     car_name CHAR[15] PRIMARY KEY,
     constructor_name CHAR[15],
-    engine CHAR[15],
+    engine CHAR[50],
     FOREIGN KEY(constructor_name) REFERENCES Constructors
 );
 
 CREATE TABLE RacingCars(
-    name CHAR PRIMARY KEY
+    racingcar_name CHAR PRIMARY KEY
 );
 
 CREATE TABLE DriveSafetyCars(
@@ -93,58 +93,58 @@ CREATE TABLE DriveSafetyCars(
     brand_name CHAR,
     FOREIGN KEY(safetycar_name) REFERENCES OwnCars(car_name) ON DELETE CASCADE,
     FOREIGN KEY(safetycar_driver) REFERENCES 
-    SafetyCarDriver(name) ON DELETE CASCADE
+    SafetyCarDriver(safetycardricer_name) ON DELETE CASCADE
 );
 
 CREATE TABLE HaveResults1(
-    time TIME PRIMARY KEY,
-    rank INTEGER,
+    result_time TIME PRIMARY KEY,
+    race_rank INTEGER
 );
 
 CREATE TABLE HaveResults2(
     result_id INTEGER,
     race_date DATE,
     grid_position INTEGER,
-    time TIME,
-    status CHAR,
+    result_time TIME,
+    race_status CHAR,
     PRIMARY KEY(result_id,race_date),
-    FOREIGN KEY(race_date) REFERENCES Races(date) ON DELETE CASCADE    
+    FOREIGN KEY(race_date) REFERENCES RacesTakePlace(race_date) ON DELETE CASCADE    
 );
 
 CREATE TABLE OfficialStaff(
-    name CHAR(30) PRIMARY KEY
+    officialstaff_name CHAR(30) PRIMARY KEY
 );
 
 CREATE TABLE SafetyCarDriver(
-    name CHAR(30) PRIMARY KEY
+    safetycardriver_name CHAR(30) PRIMARY KEY
 );
 
 CREATE TABLE President(
-    name CHAR(30) PRIMARY KEY,
-    start_date date,
-    FOREIGN KEY(name) REFERENCES OfficialStaff(name) ON DELETE CASCADE 
+    president_name CHAR(30) PRIMARY KEY,
+    duration_start_date DATE,
+    FOREIGN KEY(president_name) REFERENCES OfficialStaff ON DELETE CASCADE 
 );
 
 CREATE TABLE Workfor(
     officialstaff_name CHAR(30),
     race_date DATE,
-    PRIMARY KEY(officialstaff_name,race_date),
+    PRIMARY KEY(officialstaff_name, race_date),
     FOREIGN KEY(officialstaff_name) REFERENCES 
-    OfficialStaff(name) ON DELETE CASCADE,
-    FOREIGN KEY(race_date) REFERENCES Races(date) ON DELETE CASCADE
+    OfficialStaff ON DELETE CASCADE,
+    FOREIGN KEY(race_date) REFERENCES RacesTakePlace(race_date) ON DELETE CASCADE
 );
 
 CREATE TABLE Broadcasters(
-    name CHAR(30) PRIMARY KEY
+    broadcasters_name CHAR(30) PRIMARY KEY
 );
 
 CREATE TABLE Broadcast(
     race_date DATE,
     broadcasters_name CHAR(30),
     PRIMARY KEY(race_date, broadcasters_name),
-    FOREIGN KEY(race_date) REFERENCES Races(date) ON DELETE CASCADE,
+    FOREIGN KEY(race_date) REFERENCES RacesTakePlace(race_date) ON DELETE CASCADE,
     FOREIGN KEY(broadcasters_name) REFERENCES 
-    Broadcasters(name) ON DELETE CASCADE
+    Broadcasters ON DELETE CASCADE
 );
 
 CREATE TABLE Participate(
