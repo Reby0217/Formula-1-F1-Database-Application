@@ -63,7 +63,7 @@ CREATE TABLE TeamPrinciples(
     date_of_birth DATE,  
     duration CHAR[15],
     PRIMARY KEY(first_name,last_name,date_of_birth),
-    FOREIGN KEY(first_name,last_name,date_of_birth) REFERENCES TeamPrinciples(first_name,last_name,date_of_birth)
+    FOREIGN KEY(first_name,last_name,date_of_birth) REFERENCES EmployTeamMembers(first_name,last_name,date_of_birth)
 );
 
 CREATE TABLE Drive(
