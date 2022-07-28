@@ -54,7 +54,7 @@ CREATE TABLE RacingDrivers(
     date_of_birth DATE,
     driver_id INTEGER,
     PRIMARY KEY(first_name,last_name,date_of_birth),
-    FOREIGN KEY(first_name,last_name,date_of_birth) REFERENCES TeamPrinciples(first_name,last_name,date_of_birth)
+    FOREIGN KEY(first_name,last_name,date_of_birth) REFERENCES EmployTeamMembers(first_name,last_name,date_of_birth)
 );
 
 CREATE TABLE TeamPrinciples(
@@ -73,7 +73,7 @@ CREATE TABLE Drive(
     racingdriver_lastname CHAR[15],
     PRIMARY KEY(racingcar_name, racingdriver_dob,racingdriver_firstname, racingdriver_lastname),
     FOREIGN KEY(racingcar_name) REFERENCES RaceingCars,
-    FOREIGN KEY(racingdriver_dob, racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers(first_name,last_name,date_of_birth)
+    FOREIGN KEY(racingdriver_dob, racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers(date_of_birth,first_name,last_name)
 );
 
 CREATE TABLE OwnCars(
