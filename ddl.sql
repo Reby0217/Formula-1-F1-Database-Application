@@ -16,7 +16,7 @@ CREATE TABLE RacesTakePlace(
     race_name  CHAR(15), 
     round_number INTEGER, 
     lap_numbers INTEGER, 
-    circuit_name CHAR(50),
+    circuit_name CHAR(50) NOT NULL,
     FOREIGN KEY(circuit_name) REFERENCES Circuit_2
 );
 
@@ -34,8 +34,8 @@ CREATE TABLE Sponsor(
     constructor_name CHAR(15),
     sponsorship_name CHAR(50),
     PRIMARY KEY(constructor_name,sponsorship_name),
-    FOREIGN KEY(constructor_name) REFERENCES Constructors,
-    FOREIGN KEY(sponsorship_name) REFERENCES Sponsorship
+    FOREIGN KEY(constructor_name) REFERENCES Constructors NOT NULL,
+    FOREIGN KEY(sponsorship_name) REFERENCES Sponsorship NOT NULL
 );
 
 CREATE TABLE EmployTeamMembers(
@@ -43,7 +43,7 @@ CREATE TABLE EmployTeamMembers(
     last_name CHAR(15),
     date_of_birth DATE,
     nationality CHAR(15),
-    constructor_name CHAR(15),
+    constructor_name CHAR(15) NOT NULL,
     PRIMARY KEY(first_name,last_name,date_of_birth),
     FOREIGN KEY(constructor_name) REFERENCES Constructors
 );
@@ -72,15 +72,15 @@ CREATE TABLE Drive(
     racingdriver_firstname CHAR(15),
     racingdriver_lastname CHAR(15),
     PRIMARY KEY(racingcar_name, racingdriver_dob,racingdriver_firstname, racingdriver_lastname),
-    FOREIGN KEY(racingcar_name) REFERENCES RaceingCars,
-    FOREIGN KEY(racingdriver_dob, racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers(date_of_birth,first_name,last_name)
+    FOREIGN KEY(racingcar_name) REFERENCES RaceingCars NOT NULL,
+    FOREIGN KEY(racingdriver_dob, racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers(date_of_birth,first_name,last_name) NOT NULL
 );
 
 CREATE TABLE OwnCars(
     car_name CHAR(15) PRIMARY KEY,
-    constructor_name CHAR(15),
+    constructor_name CHAR(15) NOT NULL, 
     engine CHAR(50),
-    FOREIGN KEY(constructor_name) REFERENCES Constructors
+    FOREIGN KEY(constructor_name) REFERENCES Constructors NOT NULL
 );
 
 CREATE TABLE RacingCars(
@@ -90,10 +90,10 @@ CREATE TABLE RacingCars(
 CREATE TABLE DriveSafetyCars(
     safetycar_name CHAR(30) PRIMARY KEY,
     safetycar_driver CHAR(30) NOT NULL,
-    brand_name CHAR(30),
+    brand_name CHAR (30),
     FOREIGN KEY(safetycar_name) REFERENCES OwnCars(car_name) ON DELETE CASCADE,
     FOREIGN KEY(safetycar_driver) REFERENCES 
-    SafetyCarDriver(safetycardricer_name) ON DELETE CASCADE
+    SafetyCarDriver(safetycardricer_name) NOT NULL ON DELETE CASCADE
 );
 
 CREATE TABLE HaveResults1(
@@ -130,7 +130,7 @@ CREATE TABLE Workfor(
     race_date DATE,
     PRIMARY KEY(officialstaff_name, race_date),
     FOREIGN KEY(officialstaff_name) REFERENCES 
-    OfficialStaff ON DELETE CASCADE,
+    OfficialStaff  ON DELETE CASCADE,
     FOREIGN KEY(race_date) REFERENCES RacesTakePlace(race_date) ON DELETE CASCADE
 );
 
