@@ -15,7 +15,7 @@ CREATE TABLE RacesTakePlace(
     race_date  DATE PRIMARY KEY, 
     race_name  CHAR[15], 
     round_number INTEGER, 
-    lap_numbers integer, 
+    lap_numbers INTEGER, 
     circuit_name CHAR[50],
     FOREIGN KEY(circuit_name) REFERENCES Circuit_2
 );
@@ -54,7 +54,7 @@ CREATE TABLE RacingDrivers(
     date_of_birth DATE,
     driver_id INTEGER,
     PRIMARY KEY(first_name,last_name,date_of_birth),
-    FOREIGN KEY(first_name,last_name,date_of_birth) REFERENCES TeamPrinciples
+    FOREIGN KEY(first_name,last_name,date_of_birth) REFERENCES TeamPrinciples(first_name,last_name,date_of_birth)
 );
 
 CREATE TABLE TeamPrinciples(
@@ -63,7 +63,7 @@ CREATE TABLE TeamPrinciples(
     date_of_birth DATE,  
     duration CHAR[15],
     PRIMARY KEY(first_name,last_name,date_of_birth),
-    FOREIGN KEY(first_name,last_name,date_of_birth) REFERENCES TeamPrinciples
+    FOREIGN KEY(first_name,last_name,date_of_birth) REFERENCES TeamPrinciples(first_name,last_name,date_of_birth)
 );
 
 CREATE TABLE Drive(
@@ -73,7 +73,7 @@ CREATE TABLE Drive(
     racingdriver_lastname CHAR[15],
     PRIMARY KEY(racingcar_name, racingdriver_dob,racingdriver_firstname, racingdriver_lastname),
     FOREIGN KEY(racingcar_name) REFERENCES RaceingCars,
-    FOREIGN KEY(racingdriver_dob, racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers
+    FOREIGN KEY(racingdriver_dob, racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers(first_name,last_name,date_of_birth)
 );
 
 CREATE TABLE OwnCars(
