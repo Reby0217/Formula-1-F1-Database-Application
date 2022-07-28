@@ -90,7 +90,7 @@ CREATE TABLE RacingCars(
 CREATE TABLE DriveSafetyCars(
     safetycar_name CHAR(30) PRIMARY KEY,
     safetycar_driver CHAR(30) NOT NULL,
-    brand_name CHAR (30),
+    brand_name CHAR(30),
     FOREIGN KEY(safetycar_name) REFERENCES OwnCars(car_name) ON DELETE CASCADE,
     FOREIGN KEY(safetycar_driver) REFERENCES 
     SafetyCarDriver(safetycardricer_name) ON DELETE CASCADE
