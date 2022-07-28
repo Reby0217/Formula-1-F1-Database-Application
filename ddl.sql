@@ -1,56 +1,56 @@
 CREATE TABLE Circuit_1(
-    city CHAR[15] PRIMARY KEY,
-    time_zone CHAR[15]
+    city CHAR(15) PRIMARY KEY,
+    time_zone CHAR(15)
 );
 
 CREATE TABLE Circuit_2(
-    city CHAR[15],
-    circuit_name CHAR[50] PRIMARY KEY,
-    country CHAR[15]
+    city CHAR(15),
+    circuit_name CHAR(50) PRIMARY KEY,
+    country CHAR(15)
     longitude REAL,
     latitude REAL
 );
 
 CREATE TABLE RacesTakePlace(
     race_date  DATE PRIMARY KEY, 
-    race_name  CHAR[15], 
+    race_name  CHAR(15), 
     round_number INTEGER, 
     lap_numbers INTEGER, 
-    circuit_name CHAR[50],
+    circuit_name CHAR(50),
     FOREIGN KEY(circuit_name) REFERENCES Circuit_2
 );
 
 CREATE TABLE Constructors(
-    constructors_name CHAR[15] PRIMARY KEY,
-    nationality CHAR[15],
-    city CHAR[15]
+    constructors_name CHAR(15) PRIMARY KEY,
+    nationality CHAR(15),
+    city CHAR(15)
 );
 
 CREATE TABLE Sponsorship(
-    sponsorship_name CHAR[50] PRIMARY KEY
+    sponsorship_name CHAR(50) PRIMARY KEY
 );
 
 CREATE TABLE Sponsor(
-    constructor_name CHAR[15],
-    sponsorship_name CHAR[50],
+    constructor_name CHAR(15),
+    sponsorship_name CHAR(50),
     PRIMARY KEY(constructor_name,sponsorship_name),
     FOREIGN KEY(constructor_name) REFERENCES Constructors,
     FOREIGN KEY(sponsorship_name) REFERENCES Sponsorship
 );
 
 CREATE TABLE EmployTeamMembers(
-    first_name CHAR[15],
-    last_name CHAR[15],
+    first_name CHAR(15),
+    last_name CHAR(15),
     date_of_birth DATE,
-    nationality CHAR[15],
-    constructor_name CHAR[15],
+    nationality CHAR(15),
+    constructor_name CHAR(15),
     PRIMARY KEY(first_name,last_name,date_of_birth),
     FOREIGN KEY(constructor_name) REFERENCES Constructors
 );
 
 CREATE TABLE RacingDrivers(
-    first_name CHAR[15],
-    last_name CHAR[15],
+    first_name CHAR(15),
+    last_name CHAR(15),
     date_of_birth DATE,
     driver_id INTEGER,
     PRIMARY KEY(first_name,last_name,date_of_birth),
@@ -58,28 +58,28 @@ CREATE TABLE RacingDrivers(
 );
 
 CREATE TABLE TeamPrinciples(
-    first_name CHAR[15],
-    last_name CHAR[15],
+    first_name CHAR(15),
+    last_name CHAR(15),
     date_of_birth DATE,  
-    duration CHAR[15],
+    duration CHAR(15),
     PRIMARY KEY(first_name,last_name,date_of_birth),
     FOREIGN KEY(first_name,last_name,date_of_birth) REFERENCES EmployTeamMembers(first_name,last_name,date_of_birth)
 );
 
 CREATE TABLE Drive(
-    racingcar_name CHAR[15],
+    racingcar_name CHAR(15),
     racingdriver_dob DATE,
-    racingdriver_firstname CHAR[15],
-    racingdriver_lastname CHAR[15],
+    racingdriver_firstname CHAR(15),
+    racingdriver_lastname CHAR(15),
     PRIMARY KEY(racingcar_name, racingdriver_dob,racingdriver_firstname, racingdriver_lastname),
     FOREIGN KEY(racingcar_name) REFERENCES RaceingCars,
     FOREIGN KEY(racingdriver_dob, racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers(date_of_birth,first_name,last_name)
 );
 
 CREATE TABLE OwnCars(
-    car_name CHAR[15] PRIMARY KEY,
-    constructor_name CHAR[15],
-    engine CHAR[50],
+    car_name CHAR(15) PRIMARY KEY,
+    constructor_name CHAR(15),
+    engine CHAR(50),
     FOREIGN KEY(constructor_name) REFERENCES Constructors
 );
 
@@ -88,9 +88,9 @@ CREATE TABLE RacingCars(
 );
 
 CREATE TABLE DriveSafetyCars(
-    safetycar_name CHAR PRIMARY KEY,
-    safetycar_driver CHAR UNIQUE NOT NULL,
-    brand_name CHAR,
+    safetycar_name CHAR(30) PRIMARY KEY,
+    safetycar_driver CHAR(30) NOT NULL,
+    brand_name CHAR (30),
     FOREIGN KEY(safetycar_name) REFERENCES OwnCars(car_name) ON DELETE CASCADE,
     FOREIGN KEY(safetycar_driver) REFERENCES 
     SafetyCarDriver(safetycardricer_name) ON DELETE CASCADE
@@ -106,7 +106,7 @@ CREATE TABLE HaveResults2(
     race_date DATE,
     grid_position INTEGER,
     result_time TIME,
-    race_status CHAR,
+    race_status CHAR(30),
     PRIMARY KEY(result_id,race_date),
     FOREIGN KEY(race_date) REFERENCES RacesTakePlace(race_date) ON DELETE CASCADE    
 );
