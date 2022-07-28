@@ -5,7 +5,7 @@ CREATE TABLE Circuit_1(
 
 CREATE TABLE Circuit_2(
     city CHAR[15],
-    circuit_name CHAR[15] PRIMARY KEY,
+    circuit_name CHAR[50] PRIMARY KEY,
     country CHAR[15]
     longitude REAL,
     latitude REAL
@@ -16,7 +16,7 @@ CREATE TABLE RacesTakePlace(
     race_name  CHAR[15], 
     round_number INTEGER, 
     lap_numbers integer, 
-    circuit_name CHAR[15],
+    circuit_name CHAR[50],
     FOREIGN KEY(circuit_name) REFERENCES Circuit_2
 );
 
