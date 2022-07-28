@@ -31,11 +31,11 @@ CREATE TABLE Sponsorship(
 );
 
 CREATE TABLE Sponsor(
-    constructor_name CHAR(15),
-    sponsorship_name CHAR(50),
+    constructor_name CHAR(15) NOT NULL,
+    sponsorship_name CHAR(50) NOT NULL,
     PRIMARY KEY(constructor_name,sponsorship_name),
-    FOREIGN KEY(constructor_name) REFERENCES Constructors NOT NULL,
-    FOREIGN KEY(sponsorship_name) REFERENCES Sponsorship NOT NULL
+    FOREIGN KEY(constructor_name) REFERENCES Constructors,
+    FOREIGN KEY(sponsorship_name) REFERENCES Sponsorship
 );
 
 CREATE TABLE EmployTeamMembers(
@@ -67,7 +67,7 @@ CREATE TABLE TeamPrinciples(
 );
 
 CREATE TABLE Drive(
-    racingcar_name CHAR(15),
+    racingcar_name CHAR(15) NOT NULL,
     racingdriver_dob DATE,
     racingdriver_firstname CHAR(15),
     racingdriver_lastname CHAR(15),
@@ -80,7 +80,7 @@ CREATE TABLE OwnCars(
     car_name CHAR(15) PRIMARY KEY,
     constructor_name CHAR(15) NOT NULL, 
     engine CHAR(50),
-    FOREIGN KEY(constructor_name) REFERENCES Constructors NOT NULL
+    FOREIGN KEY(constructor_name) REFERENCES Constructors 
 );
 
 CREATE TABLE RacingCars(
@@ -93,7 +93,7 @@ CREATE TABLE DriveSafetyCars(
     brand_name CHAR (30),
     FOREIGN KEY(safetycar_name) REFERENCES OwnCars(car_name) ON DELETE CASCADE,
     FOREIGN KEY(safetycar_driver) REFERENCES 
-    SafetyCarDriver(safetycardricer_name) NOT NULL ON DELETE CASCADE
+    SafetyCarDriver(safetycardricer_name) ON DELETE CASCADE
 );
 
 CREATE TABLE HaveResults1(
