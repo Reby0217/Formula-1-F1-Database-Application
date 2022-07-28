@@ -67,13 +67,13 @@ CREATE TABLE TeamPrinciples(
 );
 
 CREATE TABLE Drive(
-    racingcar_name CHAR(15) NOT NULL,
+    racingcar_name CHAR(15),
     racingdriver_dob DATE,
     racingdriver_firstname CHAR(15),
     racingdriver_lastname CHAR(15),
     PRIMARY KEY(racingcar_name, racingdriver_dob,racingdriver_firstname, racingdriver_lastname),
-    FOREIGN KEY(racingcar_name) REFERENCES RaceingCars NOT NULL,
-    FOREIGN KEY(racingdriver_dob, racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers(date_of_birth,first_name,last_name) NOT NULL
+    FOREIGN KEY(racingcar_name) REFERENCES RaceingCars,
+    FOREIGN KEY(racingdriver_dob, racingdriver_firstname, racingdriver_lastname) REFERENCES RacingDrivers(date_of_birth,first_name,last_name) 
 );
 
 CREATE TABLE OwnCars(
