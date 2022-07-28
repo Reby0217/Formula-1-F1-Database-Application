@@ -156,7 +156,7 @@ CREATE TABLE Participate(
     PRIMARY KEY(race_date, racingcar_name, racingdriver_dob, 
     racingdriver_firstname, racingdriver_lastname),
     FOREIGN KEY(race_date) REFERENCES Race(date) ON DELETE CASCADE,
-    FOREIGN KEY(racingcar_name) REFERENCES Racingcars(name) ON DELETE CASCADE,
+    FOREIGN KEY(racingcar_name) REFERENCES Racingcars ON DELETE CASCADE,
     FOREIGN KEY(racingdriver_dob,racingdriver_firstname,
     racingdriver_lastname) REFERENCES Racingdrivers(date_of_birth, 
     first_name, last_name) ON DELETE CASCADE
