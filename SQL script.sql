@@ -324,11 +324,9 @@ INSERT INTO Broadcast VALUES (2008-06-08, 'ABC');
 INSERT INTO Broadcast VALUES (2009-04-26, 'CCTV');
 INSERT INTO Broadcast VALUES (2009-11-01, 'ESPN');
 
-
 -- Participate
 INSERT INTO Participate VALUES (2008-07-06, 'VF-22', 1997-04-05, 'Mark', 'Webber');
 INSERT INTO Participate VALUES (2009-04-05, 'TF-102', 1993-05-23, 'James', 'Speed');
 INSERT INTO Participate VALUES (2008-06-08, 'A522', 1985-09-07, 'Shinji', 'Nakano');
 INSERT INTO Participate VALUES (2009-04-26, 'AT03', 1994-07-25, 'Martin', 'Brundle');
 INSERT INTO Participate VALUES (2009-11-01, 'AMR22', 1995-06-07, 'Aguri', 'Suzuki');
-
