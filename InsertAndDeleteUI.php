@@ -9,7 +9,7 @@
 
     <body>
 
-    <h2 style="color:Tomato;">Adding new Circuits</h3>
+    <h2 style="color:MediumSeaGreen;">Adding new Circuits</h2>
     <form method="POST" action="InsertAndDeleteUI.php"> 
         <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
         Circuit Name: <input type="text" name="circuit_name"> <br /><br />
@@ -24,7 +24,7 @@
     </body>
     </form>
 
-    <h2>Delete Circuit</h2>
+    <h2 style="color:Tomato;">Delete Circuit</h2>
     <form method="POST" action="InsertAndDeleteUI.php">
         <input type="hidden" id="deleteQueryRequest" name="deleteQueryRequest">
         Delete Circuit Name: <input type="text" name="circuit_name"> <br /><br />
