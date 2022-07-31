@@ -162,9 +162,6 @@ CREATE TABLE Participate(
     first_name, last_name) ON DELETE CASCADE
 );
 
-
-
-
 -- circuit1
 INSERT INTO Circuit_1 VALUES ('Silverstone', 'GMT+1');
 INSERT INTO Circuit_1 VALUES ('Kuala Lumpur', 'GMT+8');
@@ -227,11 +224,11 @@ INSERT INTO RacingDrivers VALUES ('Martin','Brundle',1994-07-25,4);
 INSERT INTO RacingDrivers VALUES ('Aguri','Suzuki',1995-06-07,5);
 
 --TeamPrinciples
-INSERT INTO TeamPrinciples VALUES ('Colin','Kolles',1967-12-13,2005-2008);
-INSERT INTO TeamPrinciples VALUES ('Tadashi','Yamashina',1951-05-08,2012-2016);
-INSERT INTO TeamPrinciples VALUES ('Bob','Hoogenboom',1949-05-06,2013-2014);
-INSERT INTO TeamPrinciples VALUES ('James','Steve',1973-05-23,2008-2009);
-INSERT INTO TeamPrinciples VALUES ('Jobs','Bond',1957-08-24,2010-2012);
+INSERT INTO TeamPrinciples VALUES ('Colin','Kolles',1967-12-13,'2005-2008');
+INSERT INTO TeamPrinciples VALUES ('Tadashi','Yamashina',1951-05-08,'2012-2016');
+INSERT INTO TeamPrinciples VALUES ('Bob','Hoogenboom',1949-05-06,'2013-2014');
+INSERT INTO TeamPrinciples VALUES ('James','Steve',1973-05-23,'2008-2009');
+INSERT INTO TeamPrinciples VALUES ('Jobs','Bond',1957-08-24,'2010-2012');
 
 --Drive
 INSERT INTO Drive VALUES ('F8-VII',1997-04-05,'Mark','Webber');
@@ -334,3 +331,4 @@ INSERT INTO Participate VALUES (2009-04-05, 'TF-102', 1993-05-23, 'James', 'Spee
 INSERT INTO Participate VALUES (2008-06-08, 'A522', 1985-09-07, 'Shinji', 'Nakano');
 INSERT INTO Participate VALUES (2009-04-26, 'AT03', 1994-07-25, 'Martin', 'Brundle');
 INSERT INTO Participate VALUES (2009-11-01, 'AMR22', 1995-06-07, 'Aguri', 'Suzuki');
+
