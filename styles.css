@@ -1,8 +1,7 @@
 .page-header {
-    height: 87px;
+    height: 80px;
     background-image: url("F1_logo.svg");
-    margin: auto;
-    background-position: right;
+    background-position: 88% 50%;
     background-repeat: no-repeat;
     background-size: 8%;
 }
