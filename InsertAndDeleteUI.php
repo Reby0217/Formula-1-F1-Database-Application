@@ -103,7 +103,7 @@ $statement = OCIParse($db_conn, $cmdstr);
          //echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
           echo "<br><font color='#db2c20'><br />&nbsp;Insert failed, please make sure input type is correct.</font><br>";
           $e = OCI_Error($statement); // For OCIExecute errors, pass the statementhandle
-          echo htmlentities($e['message']);
+          //echo htmlentities($e['message']);
           echo "<br>";
           $success = False;
       }
@@ -111,7 +111,7 @@ $statement = OCIParse($db_conn, $cmdstr);
 }
 
 function printResult($result) { //prints results from a select statement
-  echo "<br>Retrieved data from table Circuit:<br>";
+  echo "Retrieved data from table Circuit:";
   echo "<table>";
   echo "<tr>
     <th>City</th>
@@ -130,7 +130,6 @@ function printResult($result) { //prints results from a select statement
       <td><p align='center';>" . $row["4"] . "</p></td>
       </tr>"; //or just use "echo $row[0]"
   }
-
   echo "</table>";
 }
 
@@ -189,7 +188,8 @@ function handleDeleteRequest() {
                           WHERE circuit_name = '". $delete_name . "'");
   $row = oci_fetch_row($ans);
   if ($row == false) {
-    echo "<br><font color='#db2c20'><br />&nbsp;delete failed, circuit does not exist</font><br>";
+    echo "<font color='#db2c20'><br />&nbsp;delete failed, circuit does not exist</font><br>";
+    echo "<br>";
   } 
   $row = executePlainSQL("DELETE FROM Circuit_2
                           WHERE circuit_name = '". $delete_name . "'");
