@@ -10,6 +10,12 @@
   <header class="page-header">
     <h1>Formula 1 Database Application </h1>
   </header>
+  <p text-align='left'>Return to Mainpage:
+    <a href="https://www.students.cs.ubc.ca/~douxinyi/m4/MainUI.php">
+      <button>Back</button>
+    </a>
+  </p>
+
   <h2 class="operations">Adding new Circuits</h2>
   <form method="POST" action="InsertAndDeleteUI.php">
     <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
@@ -111,8 +117,8 @@ $statement = OCIParse($db_conn, $cmdstr);
 }
 
 function printResult($result) { //prints results from a select statement
-  echo "Retrieved data from table Circuit:";
-  echo "<table>";
+  echo "<br>Retrieved data from table Circuit:<br>";
+  echo "<table class='center'>";
   echo "<tr>
     <th>City</th>
     <th>Circuit Name</th>
