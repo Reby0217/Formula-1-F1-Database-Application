@@ -195,7 +195,7 @@ INSERT INTO Circuit_1 VALUES ('Abu Dhabi', 'GMT+4');
 -- circuit2
 INSERT INTO Circuit_2 VALUES ('Silverstone', 'Silverstone Circuit', 'UK', -1.01694, 52.0786);
 INSERT INTO Circuit_2 VALUES ('Kuala Lumpur', 'Sepang International Circuit', 'Malaysia', 101.738, 2.76083);
-INSERT INTO Circuit_2 VALUES ('Montreal', 'Circuit Gilles Villeneuve', 'Canada', 45.5, 45.5);
+INSERT INTO Circuit_2 VALUES ('Montreal', 'Circuit Gilles Villeneuve', 'Canada', -73.5228, 45.5);
 INSERT INTO Circuit_2 VALUES ('Sakhir', 'Bahrain International Circuit', 'Bahrain', 50.5106, 26.0325);
 INSERT INTO Circuit_2 VALUES ('Abu Dhabi', 'Yes Marina Circuit', 'UAE', 54.6031, 24.4672);
 
