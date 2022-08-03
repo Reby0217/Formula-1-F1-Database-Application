@@ -1,14 +1,20 @@
+:root{
+    --red: #db2c20;
+    --blue:#2d4cb3;
+    --lightblue: #5e75c0;
+}
+
 .page-header {
     height:80px;
     background-image: url("F1_logo.svg");
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 8.5%;
-    color:red;
+    color: var(--red);
 }
 
 body {
-    color:yellow;
+    color:var(--lightblue);
     text-align: center;
     font-size: larger;
     font-weight: bolder;
@@ -24,9 +30,9 @@ body:before{
     bottom: 0;
     right: 0;
     z-index: -1;
-    opacity: .4;
+    opacity: .2;
 }
 
 .operations {
-    color:blue;
+    color: var(--blue);
 }
