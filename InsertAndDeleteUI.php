@@ -2,15 +2,13 @@
 <html>
 
 <head>
-  <title>
-    Insert circuits
-  </title>
+  <title>Insert circuits </title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <header class="page-header">
-    <h1>Formula Database Application </h1>
+    <h1>Formula 1 Database Application </h1>
   </header>
   <h2 class="operations">Adding new Circuits</h2>
   <form method="POST" action="InsertAndDeleteUI.php">
