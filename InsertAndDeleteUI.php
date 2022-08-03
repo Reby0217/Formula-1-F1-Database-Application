@@ -21,10 +21,8 @@
     <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
     Circuit Name: <input type="text" name="circuit_name"> <br /><br />
     <p>Leave below entries empty if you do not have detailed information.</p>
-    City: <input type="text" name="city"> <br /><br />
-    Country: <input type="text" name="country"> <br /><br />
-    Longitude: <input type="real" name="longitude"> <br /><br />
-    Latitude: <input type="real" name="latitude"> <br /><br />
+    City: <input type="text" name="city"> Country: <input type="text" name="country"> <br /><br />
+    Longitude: <input type="real" name="longitude"> Latitude: <input type="real" name="latitude"> <br /><br />
     <input type="submit" value="Insert" name="insertSubmit"></p>
 
   </form>
@@ -144,7 +142,7 @@ function connectToDB() {
 
   // Your username is ora_(CWL_ID) and the password is a(student number). For example,
 // ora_platypus is the username and a12345678 is the password.
-  $db_conn = OCILogon("ora_douxinyi", "a84855964", "dbhost.students.cs.ubc.ca:1522/stu");
+  $db_conn = OCILogon("ora_kej19", "a16752370", "dbhost.students.cs.ubc.ca:1522/stu");
 
   if ($db_conn) {
       debugAlertMessage("Database is Connected");
