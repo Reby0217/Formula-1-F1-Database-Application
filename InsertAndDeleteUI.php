@@ -20,13 +20,13 @@
     Longitude: <input type="real" name="longitude"> <br /><br />
     Latitude: <input type="real" name="latitude"> <br /><br />
     <input type="submit" value="Insert" name="insertSubmit"></p>
-</body>
-</form>
+
+  </form>
 
 <h2 class="operations">Delete Circuit</h2>
 <form method="POST" action="InsertAndDeleteUI.php">
   <input type="hidden" id="deleteQueryRequest" name="deleteQueryRequest">
-  Circuit Name: <input type="text" name="circuit_name"> <br /><br />
+  Delete Circuit Name: <input type="text" name="circuit_name"> <br /><br />
   <input type="submit" value="Delete" name="deleteSubmit"></p>
 </form>
 
@@ -100,7 +100,7 @@ function connectToDB() {
 
   // Your username is ora_(CWL_ID) and the password is a(student number). For example,
 // ora_platypus is the username and a12345678 is the password.
-  $db_conn = OCILogon("ora_douxinyi", "a84855964", "dbhost.students.cs.ubc.ca:1522/stu");
+  $db_conn = OCILogon("ora_kej19", "a16752370", "dbhost.students.cs.ubc.ca:1522/stu");
 
   if ($db_conn) {
       debugAlertMessage("Database is Connected");
@@ -125,25 +125,61 @@ function handleInsertRequest() {
 
   //Getting the values from user and insert data into the table
   $tuple = array (
-      ":bind1" => $_POST['insNo'],
-      ":bind2" => $_POST['insName'],
-      ":bind3" => $_POST['insName'],
-      ":bind4" => $_POST['insName'],
-      ":bind5" => $_POST['insName']
+      ":bind1" => $_POST['Circuit Name'],
+      ":bind2" => $_POST['City'],
+      ":bind3" => $_POST['Country'],
+      ":bind4" => $_POST['Longitude'],
+      ":bind5" => $_POST['Latitude']
   );
-
+  
   $alltuples = array (
       $tuple
   );
 
-  executeBoundSQL("insert into demoTable values (:bind1, :bind2)", $alltuples);
+  executeBoundSQL("INSERT INTO Circuit_2 VALUES (:bind1, :bind2, :bind3, :bind4, :bind5)", $alltuples);
+  OCICommit($db_conn);
+}
+
+function handleDeleteRequest() {
+  global $db_conn;
+
+  //Getting the values delete from table
+  $delete_name = $_POST['circuit_name'];
+  $ans = executePlainSQL("SELECT circuit_name 
+                          FROM Circuit_2
+                          WHERE circuit_name = '". $delete_name . "'");
+  $row = oci_fetch_row($ans);
+  if ($row == false) {
+    echo "<br> <p style:font=larger>Delete failed: No such circuit found.</p></br>";
+  } 
+  $row = executePlainSQL("DELETE FROM Circuit_2
+                          WHERE circuit_name = '". $delete_name . "'");
   OCICommit($db_conn);
 }
 
 
 
 
+// HANDLE ALL POST ROUTES
+// A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
+function handlePOSTRequest() {
+  if (connectToDB()) {
+     if (array_key_exists('insertQueryRequest', $_POST)) {
+          handleInsertRequest();
+      } else if (array_key_exists('deleteQueryRequest', $_POST)){
+          handleDeleteRequest();
+      }
 
+      $result = executePlainSQL('SELECT * FROM Circuit_2');
+      printResult($result);
 
+      disconnectFromDB();
+  }
+}
 
+if (isset($_POST['deleteSubmit']) || isset($_POST['insertSubmit'])) {
+  handlePOSTRequest();
+} 
+  ?>
+  </body>
 </html>
