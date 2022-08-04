@@ -36,3 +36,8 @@ body:before{
 .operations {
     color: var(--blue);
 }
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
