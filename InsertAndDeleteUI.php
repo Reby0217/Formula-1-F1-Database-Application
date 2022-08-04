@@ -180,7 +180,7 @@
         }
     }
     $result = preg_replace('/[^a-zA-Z0-9_ -]/s','',$missingArray);
-      echo "<h2 style='color:red;'> Please fill " .implode("','",$result)."'<br> </h2>" ;;
+      echo "<h2 style='color:red;'> Please fill '" .implode("','",$result)."'<br> </h2>" ;;
     
   }
 
