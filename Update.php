@@ -133,13 +133,13 @@ function handleUpdateRequest() {
 
   
   if (OCI_Fetch_Array($tmp1, OCI_BOTH)[0] == NULL){
-    echo "<font color='red'><br />&nbsp; Invalid Constructor name. Please enter a valid one.</font>";
+    echo "<font color='red'><br />Invalid Constructor name. Please enter a valid one.</font>";
   } 
   if (OCI_Fetch_Array($tmp2, OCI_BOTH)[0] == NULL){
-    echo "<font color='red'><br />&nbsp; Invalid City name. Please enter a valid one.</font>";
+    echo "<font color='red'><br />Invalid City name. Please enter a valid one.</font>";
   } 
   if ($new_city_name == NULL){
-    echo "<font color='red'><br />&nbsp; City name cannot be empty. Please enter a valid one.</font>";
+    echo "<font color='red'><br />City name cannot be empty. Please enter a valid one.</font>";
   } 
 
 
