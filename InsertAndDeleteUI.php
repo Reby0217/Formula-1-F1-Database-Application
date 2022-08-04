@@ -6,12 +6,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body1>
+<body class = "body1">
   <header class="page-header">
     <h1>Formula 1 Database Application </h1>
   </header>
   <p text-align='left'>Return to Mainpage:
-    <a href="https://www.students.cs.ubc.ca/~kej19/MainUI.php">
+    <a href="https://www.students.cs.ubc.ca/~douxinyi/m4/MainUI.php">
       <button>Back</button>
     </a>
   </p>
@@ -115,14 +115,14 @@ $statement = OCIParse($db_conn, $cmdstr);
 }
 
 function printResult($result) { //prints results from a select statement
-  echo "<br>Retrieved data from table Circuit:<br>";
+  echo "<br><h3><font color='#2d4cb3'>Retrieved data from table Circuit:</h3>";
   echo "<table class='center'>";
   echo "<tr>
-    <th>City</th>
-    <th>Circuit Name</th>
-    <th>Country</th>
-    <th>Longitude</th>
-    <th>Latitude</th>
+    <th><font color='#2d4cb3'>City</th>
+    <th><font color='#2d4cb3'>Circuit Name</th>
+    <th><font color='#2d4cb3'>Country</th>
+    <th><font color='#2d4cb3'>Longitude</th>
+    <th><font color='#2d4cb3'>Latitude</th>
     </tr>";
 
   while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
@@ -211,18 +211,18 @@ function handlePOSTRequest() {
     else if (array_key_exists('insertQueryRequest', $_POST)) {
       handleInsertRequest();
     }
+    $result = executePlainSQL('SELECT * FROM Circuit_2');
+    printResult($result);
 
-      $result = executePlainSQL('SELECT * FROM Circuit_2');
-      printResult($result);
-
-      disconnectFromDB();
+    disconnectFromDB();
   }
 }
 
 if (isset($_POST['deleteSubmit']) || isset($_POST['insertSubmit'])) {
+
   handlePOSTRequest();
 }
 
 ?>
-  </body1>
+  </body>
 </html>

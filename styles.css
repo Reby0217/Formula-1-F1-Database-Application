@@ -14,14 +14,14 @@
     color: var(--red);
 }
 
-body1 {
+.body1 {
     color:var(--lightblue);
     text-align: center;
     font-size: larger;
     font-weight: bolder;
 }
 
-body1:before{
+.body1:before{
     content: "";
     background-image: url("background.jpeg");
     position: absolute;
@@ -43,14 +43,14 @@ body1:before{
     margin-right: auto;
 }
 
-body0 {
+.body0 {
     color:var(--royalblue);
     text-align: center;
     font-size: larger;
     font-weight: bolder;
 }
 
-body0:before{
+.body0:before{
     content: "";
     background-image: url("mainPG.jpg");
     position: absolute;
