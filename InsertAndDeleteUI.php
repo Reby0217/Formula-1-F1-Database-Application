@@ -6,12 +6,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body1>
   <header class="page-header">
     <h1>Formula 1 Database Application </h1>
   </header>
   <p text-align='left'>Return to Mainpage:
-    <a href="https://www.students.cs.ubc.ca/~douxinyi/m4/MainUI.php">
+    <a href="https://www.students.cs.ubc.ca/~kej19/MainUI.php">
       <button>Back</button>
     </a>
   </p>
@@ -224,5 +224,5 @@ if (isset($_POST['deleteSubmit']) || isset($_POST['insertSubmit'])) {
 }
 
 ?>
-  </body>
+  </body1>
 </html>

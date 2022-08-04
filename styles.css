@@ -2,6 +2,7 @@
     --red: #db2c20;
     --blue:#2d4cb3;
     --lightblue: #5e75c0;
+    --orangered: #ff4500
 }
 
 .page-header {
@@ -13,14 +14,14 @@
     color: var(--red);
 }
 
-body {
+body1 {
     color:var(--lightblue);
     text-align: center;
     font-size: larger;
     font-weight: bolder;
 }
 
-body:before{
+body1:before{
     content: "";
     background-image: url("background.jpeg");
     position: absolute;
@@ -40,4 +41,24 @@ body:before{
 .center{
     margin-left: auto;
     margin-right: auto;
+}
+
+body0 {
+    color:var(--orangered);
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+body0:before{
+    content: "";
+    background-image: url("mainPG.jpg");
+    position: absolute;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    opacity: .3;
 }
