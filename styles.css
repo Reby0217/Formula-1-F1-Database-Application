@@ -2,7 +2,7 @@
     --red: #db2c20;
     --blue:#2d4cb3;
     --lightblue: #5e75c0;
-    --orangered: #ff4500
+    --royalblue: #4169e1
 }
 
 .page-header {
@@ -44,7 +44,7 @@ body1:before{
 }
 
 body0 {
-    color:var(--orangered);
+    color:var(--royalblue);
     text-align: center;
     font-size: larger;
     font-weight: bolder;
