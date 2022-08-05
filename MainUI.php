@@ -14,7 +14,7 @@
     <br />
 
   <h2 class="operations">
-    Welcome to Formula 1 Database Application! Please select below options:</h2>
+    Welcome! Please select below options:</h2>
     <br />
 
 <form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/InsertAndDeleteUI.php">
@@ -28,6 +28,6 @@
     </p>
 </form>
 
-    </body0>
+    </body>
 
 </html>
