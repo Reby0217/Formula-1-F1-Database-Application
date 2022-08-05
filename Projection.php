@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Information About the Race Record</title>
+  <title>Races Info</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
