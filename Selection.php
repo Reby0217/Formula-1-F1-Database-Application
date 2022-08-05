@@ -107,7 +107,7 @@
          <th><font color='#2d4cb3'>Nationality</th>
          <th><font color='#2d4cb3'>City</th>
         </tr>";
-
+       
         while ($row = oci_fetch_row($result)) {
             echo "<tr>
             <td><p align='center';>" . $row[0] . "</p></td>
@@ -172,14 +172,13 @@
 
         $cnationality = $_POST['C-Nationality'];
         $City = $_POST['City'];
-        if (($cnationality != NULL) && ($City != NULL) ) {
+        if (($cnationality != NULL) && ($City != NULL)) {
         
             $check1 = executePlainSQL("SELECT * 
                                 FROM Constructors
                                 WHERE nationality = '" . $cnationality . "' AND city = '" . $City . "'");
 
-                printResult1($check1);
-        
+                    printResult1($check1);
         }     
         else {
             echo "<br><h3><font color='red'>Please enter both fields</h3>";
