@@ -31,8 +31,8 @@
 </form>
 
 <form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Selection.php">
-    <p>XX Information:&nbsp;
-        <input type="submit" value="Go" name="XXInfo">
+    <p>Selectable Information:&nbsp;
+        <input type="submit" value="Go" name="Selectable Info">
     </p>
 </form>
 
@@ -41,6 +41,7 @@
         <input type="submit" value="Go" name="Project Race Record">
     </p>
 </form>
+
 
     </body>
 </html>
