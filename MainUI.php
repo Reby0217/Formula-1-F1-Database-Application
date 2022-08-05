@@ -25,11 +25,6 @@
     </p>
 </form>
 
-<form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/InsertAndDeleteUI.php">
-    <p>Modify Current Circuits:&nbsp;
-        <input type="submit" value="Go" name="Circuit"></p>
-</form>
-
 <form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Selection.php">
     <p>Selectable Information:&nbsp;
         <input type="submit" value="Go" name="Selectable Info">
