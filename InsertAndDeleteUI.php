@@ -219,7 +219,8 @@
       } else if (array_key_exists('insertQueryRequest', $_POST)) {
         handleInsertRequest();
       }
-      $result = executePlainSQL('SELECT * FROM Circuit_2');
+      $result = executePlainSQL('SELECT * FROM Circuit_2
+                                ORDER BY circuit_name');
       printResult($result);
       disconnectFromDB();
     }

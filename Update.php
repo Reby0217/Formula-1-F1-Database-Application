@@ -163,7 +163,8 @@ function handlePOSTRequest() {
     if (array_key_exists('updateQueryRequest', $_POST)) {
       handleUpdateRequest();
 
-      $result = executePlainSQL('SELECT * FROM Constructors');
+      $result = executePlainSQL('SELECT * FROM Constructors
+                                 ORDER BY constructor_name');
       printResult($result);
 
       disconnectFromDB();
@@ -178,5 +179,7 @@ if (isset($_POST['updateSubmit'])) {
 ?>
   </body>
 </html>
+
+
 
 
