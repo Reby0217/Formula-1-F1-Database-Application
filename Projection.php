@@ -16,7 +16,7 @@
     </a>
   </p>
 
-  <h2 class="operations">Select the race information you would like to see:</h2>
+  <h2 class="operations">Browse races information by:</h2>
   <form method="POST" action="Projection.php">
     <input type="hidden" id="ProjectQueryRequest" name="ProjectQueryRequest">
     <input type="checkbox" name= "raceInfo[]"  value="race_date" > Race Date <br/>
