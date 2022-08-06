@@ -207,7 +207,7 @@
         $cnationality = $_POST['C-Nationality'];
         $City = $_POST['City'];
 
-        
+          if(($cnationality != Null) && ($City != Null)){
             $check1 = executePlainSQL("SELECT * 
                                 FROM Constructors
                                 WHERE nationality = '" . $cnationality . "' OR city = '" . $City . "'");
@@ -219,6 +219,10 @@
             // }
 
             printResult1($check1);
+        } else {
+            echo "<font color='red'><br /> Please enter a field.</font>";
+        }
+
         
         OCICommit($db_conn);
     }
