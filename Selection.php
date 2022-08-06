@@ -31,48 +31,11 @@
         </br>
         City: <input type="text" , name="City"> <input type="submit" value="Select" name="CNSubmit"></br>
     </form>
-
     <br>
 
     <?php
-
-
-    $success = True;
-    $db_conn = NULL;
-    $show_debug_alert_messages = False;
-
-    function debugAlertMessage($message)
-    {
-        global $show_debug_alert_messages;
-
-        if ($show_debug_alert_messages) {
-            echo "<script type='text/javascript'>alert('" . $message . "');</script>";
-        }
-    }
-
-    function executePlainSQL($cmdstr)
-    {
-        global $db_conn, $success;
-
-        $statement = OCIParse($db_conn, $cmdstr);
-
-        if (!$statement) {
-            echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
-            $e = OCI_Error($db_conn);
-            echo htmlentities($e['message']);
-            $success = False;
-        }
-
-        $r = OCIExecute($statement, OCI_DEFAULT);
-        if (!$r) {
-            echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
-            $e = oci_error($statement);
-            echo htmlentities($e['message']);
-            $success = False;
-        }
-
-        return $statement;
-    }
+    
+    require __DIR__ . '/#OracleFunctions.php';
 
     function printResult($result)
     {   
@@ -138,31 +101,6 @@
         echo "</table>";
     }
 
-
-    function connectToDB()
-    {
-        global $db_conn;
-        //change to your cwl and password
-        $db_conn = OCILogon("ora_qdkaiyu", "a36591923", "dbhost.students.cs.ubc.ca:1522/stu");
-        if ($db_conn) {
-            debugAlertMessage("Database is Connected");
-            return true;
-        } else {
-            debugAlertMessage("Cannot connect to Database");
-            $e = OCI_Error(); // For OCILogon errors pass no handle
-            echo htmlentities($e['message']);
-            return false;
-        }
-    }
-
-    function disconnectFromDB()
-    {
-        global $db_conn;
-
-        debugAlertMessage("Disconnect from Database");
-        OCILogoff($db_conn);
-    }
-
     function handleSelectRequest()
     {
         global $db_conn;
@@ -210,15 +148,22 @@
           if(($cnationality != Null) && ($City != Null)){
             $check1 = executePlainSQL("SELECT * 
                                 FROM Constructors
-                                WHERE nationality = '" . $cnationality . "' OR city = '" . $City . "'");
-            // if (mysql_num_rows($check1) == 0) {
-            //     echo "<h2 style='color:red;'>Failed, does not exist. </h2>" ;
-            //     echo "<br>";
-            // } else {
-            //     printResult($check1);
-            // }
-
+                                WHERE nationality = '" . $cnationality . "' 
+                                AND city = '" . $City . "'");
             printResult1($check1);
+
+        } else if(($cnationality == Null) && ($City != Null)){
+            $check1 = executePlainSQL("SELECT * 
+                                FROM Constructors
+                                WHERE city = '" . $City . "'");
+            printResult1($check1);
+
+        } else if(($cnationality != Null) && ($City == Null)){
+            $check1 = executePlainSQL("SELECT * 
+                                FROM Constructors
+                                WHERE nationality = '" . $cnationality . "' ");
+            printResult1($check1);
+
         } else {
             echo "<font color='red'><br /> Please enter a field.</font>";
         }

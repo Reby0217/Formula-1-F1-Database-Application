@@ -28,52 +28,11 @@
 
     <input type="submit" value="Project" name="ProjectSubmit">
 </form>
-
-
-
   <br>
 
   <?php
 
-
-  $success = True; 
-  $db_conn = NULL; 
-  $show_debug_alert_messages = False; 
-  $raceInfo = array();
-
-  function debugAlertMessage($message)
-  {
-    global $show_debug_alert_messages;
-
-    if ($show_debug_alert_messages) {
-      echo "<script type='text/javascript'>alert('" . $message . "');</script>";
-    }
-  }
-
-  function executePlainSQL($cmdstr)
-  {
-    global $db_conn, $success;
-
-    $statement = OCIParse($db_conn, $cmdstr);
-
-    if (!$statement) {
-      echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
-      $e = OCI_Error($db_conn); 
-      echo htmlentities($e['message']);
-      $success = False;
-    }
-
-    $r = OCIExecute($statement, OCI_DEFAULT);
-    if (!$r) {
-      echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
-      $e = oci_error($statement); 
-      echo htmlentities($e['message']);
-      $success = False;
-    }
-
-    return $statement;
-  }
-
+   require __DIR__ . '/#OracleFunctions.php';
 
   function printResult($result)
   { //prints results: Projection Table
@@ -97,30 +56,6 @@
     echo "</table>";
   }
 
-  function connectToDB()
-  {
-    global $db_conn;
-    //change to your cwl and password
-    $db_conn = OCILogon("ora_kej19", "a16752370", "dbhost.students.cs.ubc.ca:1522/stu");
-    if ($db_conn) {
-      debugAlertMessage("Database is Connected");
-      return true;
-    } else {
-      debugAlertMessage("Cannot connect to Database");
-      $e = OCI_Error(); // For OCILogon errors pass no handle
-      echo htmlentities($e['message']);
-      return false;
-    }
-  }
-
-  function disconnectFromDB()
-  {
-    global $db_conn;
-
-    debugAlertMessage("Disconnect from Database");
-    OCILogoff($db_conn);
-  }
-
   function handleProjectRequest()
   {
     global $db_conn;
@@ -138,13 +73,11 @@
       $selectStatement = $selectStatement ." FROM RacesTakePlace";
     
       $result = executePlainSQL($selectStatement);
-      printResult($result);
-      
-  }
-      OCICommit($db_conn);
-    
+      printResult($result);   
   }
 
+      OCICommit($db_conn);   
+  }
 
   function handlePOSTRequest()
   {
@@ -157,7 +90,6 @@
       disconnectFromDB();
     }
   }
-
 
   if (isset($_POST['ProjectSubmit'])) {
     handlePOSTRequest();
