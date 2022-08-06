@@ -24,6 +24,8 @@
 .body1:before{
     content: "";
     background-image: url("background.jpeg");
+    height: 100%;
+    width: 100%;
     position: absolute;
     background-size: cover;
     top: 0;

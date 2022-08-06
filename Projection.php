@@ -101,7 +101,7 @@
   {
     global $db_conn;
     //change to your cwl and password
-    $db_conn = OCILogon("ora_qdkaiyu", "a36591923", "dbhost.students.cs.ubc.ca:1522/stu");
+    $db_conn = OCILogon("ora_kej19", "a16752370", "dbhost.students.cs.ubc.ca:1522/stu");
     if ($db_conn) {
       debugAlertMessage("Database is Connected");
       return true;
@@ -125,7 +125,7 @@
   {
     global $db_conn;
 
-    if(isset($_POST['raceInfo'])){
+    if (isset($_POST['raceInfo'])){
       global $raceInfo;
       $raceInfo = $_POST['raceInfo'];
       $selectStatement = "SELECT ";

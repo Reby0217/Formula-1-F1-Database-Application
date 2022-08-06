@@ -122,25 +122,18 @@ function handleUpdateRequest() {
   $old_city_name = $_POST['old_city_name'];
   $new_city_name = $_POST['new_city_name'];
 
-  $tmp1 = executePlainSQL("SELECT constructor_name
-                          FROM Constructors
-                          WHERE constructor_name = '". $input_constructor . "'"
-);
   $tmp2 = executePlainSQL("SELECT constructor_name
   FROM Constructors
   WHERE city = '". $old_city_name . "'"
 );
 
   
-  if (OCI_Fetch_Array($tmp1, OCI_BOTH)[0] == NULL){
-    echo "<font color='red'><br />Invalid Constructor name. Please enter a valid one.</font>";
+  if (($input_constructor==NULL) || ($$old_city_name==NULL) || ($new_city_name==NULL)){
+    echo "<font color='red'><br />Make sure to fill all the blanks!</font>";
+  } else if (OCI_Fetch_Array($tmp2, OCI_BOTH)[0] == NULL){
+    echo "<font color='red'><br />Old city name cannot be empty.</font>";
   } 
-  if (OCI_Fetch_Array($tmp2, OCI_BOTH)[0] == NULL){
-    echo "<font color='red'><br />Invalid City name. Please enter a valid one.</font>";
-  } 
-  if ($new_city_name == NULL){
-    echo "<font color='red'><br />City name cannot be empty. Please enter a valid one.</font>";
-  } 
+ 
 
 
   // you need the wrap the old name and new name values with single quotations
@@ -179,7 +172,5 @@ if (isset($_POST['updateSubmit'])) {
 ?>
   </body>
 </html>
-
-
 
 

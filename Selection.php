@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>selection</title>
+    <title>Selectable Information</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -75,8 +75,9 @@
     }
 
     function printResult($result)
-    { //prints results from a select statement
-        echo "<br><h3><font color='#2d4cb3'>Selected Team Members by:</h3>";
+    {   
+        //prints results from a select statement
+        echo "<br><h3><font color='#2d4cb3'>Selected data based on your input:</h3>";
         echo "<table class='center'>";
         echo "<tr>
          <th><font color='#2d4cb3'>First Name</th>
@@ -85,8 +86,10 @@
          <th><font color='#2d4cb3'>Nationality</th>
          <th><font color='#2d4cb3'>Constructor</th>
         </tr>";
+        $hasResult = false;
 
         while ($row = oci_fetch_row($result)) {
+            $hasResult = true;
             echo "<tr>
             <td><p align='center';>" . $row[0] . "</p></td>
             <td><p align='center';>" . $row[1] . "</p></td>
@@ -95,25 +98,42 @@
             <td><p align='center';>" . $row[4] . "</p></td>
             </tr>";
         }
+
+        if ($hasResult == false) {
+            echo "<tr>
+            <td><p align='center'; style='color:red';>         </p></td>
+            <td><p align='center'; style='color:red';>         </p></td>
+            <td><p               ; style='color:red';>No Result</p></td>
+            <td><p align='center'; style='color:red';>         </p></td>
+            <td><p align='center'; style='color:red';>         </p></td>
+            </tr>";
+        }
         echo "</table>";
     }
 
     function printResult1($result)
     { //prints results from a select statement
-        echo "<br><h3><font color='#2d4cb3'>Selected Constructors by:</h3>";
+        echo "<br><h3><font color='#2d4cb3'>Selected data based on your input:</h3>";
         echo "<table class='center'>";
         echo "<tr>
          <th><font color='#2d4cb3'>Name</th>
          <th><font color='#2d4cb3'>Nationality</th>
          <th><font color='#2d4cb3'>City</th>
         </tr>";
-       
+        $hasResult = false;
         while ($row = oci_fetch_row($result)) {
+            $hasResult = true;
             echo "<tr>
             <td><p align='center';>" . $row[0] . "</p></td>
             <td><p align='center';>" . $row[1] . "</p></td>
             <td><p align='center';>" . $row[2] . "</p></td>
             </tr>";
+        }
+        if ($hasResult == false) {
+            echo "<tr>
+            <td><p align='center'; style='color:red';>         </p></td>
+            <td><p align='center'; style='color:red';>No Result</p></td>
+            <td><p align='center'; style='color:red';>         </p></td></tr>";
         }
         echo "</table>";
     }
@@ -151,18 +171,32 @@
         $nationality = $_POST['Nationality'];
         $Year = $_POST['Year'];
 
-        if (($nationality != NULL) && ($Year != NULL)) {
-           
+            if(($nationality != Null) && ($Year != Null)){
             $check = executePlainSQL("SELECT * 
-                                FROM EmployTeamMembers
-                                WHERE nationality = '" . $nationality . "' AND REGEXP_LIKE(date_of_birth, '^$Year(*)')");
+                                      FROM EmployTeamMembers
+                                      WHERE nationality = '" . $nationality . "'
+                                      AND REGEXP_LIKE(date_of_birth, '^$Year(*)')"
+                               );
 
                 printResult($check);
+                
+            } else if (($nationality == Null) && ($Year != Null)) {
+                $check = executePlainSQL("SELECT * 
+                                          FROM EmployTeamMembers
+                                          WHERE REGEXP_LIKE(date_of_birth, '^$Year(*)')");
+                printResult($check);
+
+            } else if(($nationality != Null) && ($Year == Null)){
+                $check = executePlainSQL("SELECT * 
+                                          FROM EmployTeamMembers
+                                          WHERE nationality = '" . $nationality . "'");
+                printResult($check);
+                
             } else {
-                echo "<br><h3><font color='red'>Please enter both fields</h3>";
+                echo "<font color='red'><br /> Please enter a field.</font>";
             }
-        
-     
+ 
+
         OCICommit($db_conn);
     }
 
@@ -172,17 +206,19 @@
 
         $cnationality = $_POST['C-Nationality'];
         $City = $_POST['City'];
-        if (($cnationality != NULL) && ($City != NULL)) {
+
         
             $check1 = executePlainSQL("SELECT * 
                                 FROM Constructors
-                                WHERE nationality = '" . $cnationality . "' AND city = '" . $City . "'");
+                                WHERE nationality = '" . $cnationality . "' OR city = '" . $City . "'");
+            // if (mysql_num_rows($check1) == 0) {
+            //     echo "<h2 style='color:red;'>Failed, does not exist. </h2>" ;
+            //     echo "<br>";
+            // } else {
+            //     printResult($check1);
+            // }
 
-                    printResult1($check1);
-        }     
-        else {
-            echo "<br><h3><font color='red'>Please enter both fields</h3>";
-        }
+            printResult1($check1);
         
         OCICommit($db_conn);
     }
