@@ -315,9 +315,9 @@ INSERT INTO HaveResults1 VALUES('32:29:33.828',4);
 
 -- HaveResults2
 INSERT INTO HaveResults2 VALUES (1, '2008-07-06', 5, '31:18:06.876', 'completed');
-INSERT INTO HaveResults2 VALUES (2, '2009-04-05', 4, '38:45:03.023', 'completed');
+INSERT INTO HaveResults2 VALUES (2, '2009-04-05', 4, '38:45:03.023', 'accident');
 INSERT INTO HaveResults2 VALUES (3, '2008-06-08', 3, '45:33:12.391', 'accident');
-INSERT INTO HaveResults2 VALUES (4, '2009-04-26', 2, '46:46:05.486', 'collision');
+INSERT INTO HaveResults2 VALUES (4, '2009-04-26', 2, '46:46:05.486', 'disqualified');
 INSERT INTO HaveResults2 VALUES (5, '2009-11-01', 4, '32:29:33.828', 'completed');
 
 
