@@ -63,6 +63,11 @@
         //Getting the values from user and insert data into the table
         $racename = $_POST['RaceName'];
 
+        if ($racename==NULL) {
+            echo "<font color='red'><br />Please enter a race name.</font>";
+
+        } else {
+
         $try = ("SELECT c.city, r.race_date
                  FROM RacesTakePlace r, Circuit_2 c
                  WHERE r.circuit_name = c.circuit_name 
@@ -72,6 +77,7 @@
                      
         $check = executePlainSQL($try);
         printResult($check);
+    }
 
         // if ($check != false) {
         //     printResult($check);

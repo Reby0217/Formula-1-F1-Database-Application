@@ -52,7 +52,8 @@ CREATE TABLE Constructors(
 );
 
 CREATE TABLE Sponsorship(
-    sponsorship_name CHAR(50) PRIMARY KEY
+    sponsorship_name CHAR(50) PRIMARY KEY,
+    amount INTEGER
 );
 
 CREATE TABLE Sponsor(
@@ -215,11 +216,11 @@ INSERT INTO Constructors VALUES('Sauber', 'Swiss', 'Hinwil');
 
 
 -- Sponsorship
-INSERT INTO Sponsorship VALUES('McGregor Fashion Group');
-INSERT INTO Sponsorship VALUES('Panasonic');
-INSERT INTO Sponsorship VALUES('HB Bewaking');
-INSERT INTO Sponsorship VALUES('Ferrari');
-INSERT INTO Sponsorship VALUES('Alfa Romeo');
+INSERT INTO Sponsorship VALUES('McGregor Fashion Group', 100000);
+INSERT INTO Sponsorship VALUES('Panasonic', 250000);
+INSERT INTO Sponsorship VALUES('HB Bewaking', 50000);
+INSERT INTO Sponsorship VALUES('Ferrari', 150000);
+INSERT INTO Sponsorship VALUES('Alfa Romeo', 180000);
 
 -- Sponsor
 INSERT INTO Sponsor VALUES('Spyker', 'McGregor Fashion Group');

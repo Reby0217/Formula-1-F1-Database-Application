@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Update Constructor</title>
+  <title>Update Sponsorship Cost</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -16,37 +16,32 @@
     </a>
   </p>
 
-  <h2 class="operations">Update Constructor Information</h2>
+  <h2 class="operations">Update Sponsorship Cost</h2>
   <form method="POST" action="Update.php"> 
             <input type="hidden" id="updateQueryRequest" name="updateQueryRequest">
-           Constructor Name: <input type="text" name="constructor_name"> <br /><br />
-           Old City Name: <input type="text" name="old_city_name"> <br /><br />
-           New City Name: <input type="text" name="new_city_name"> <br /><br />
+           Sponsorship Name: <input type="text" name="sponsorship_name"> <br /><br />
+           New Cost: <input type="integer" name="amount"> <br /><br />
 
             <input type="submit" value="Update" name="updateSubmit"></p>
         </form>
-
-        
+     
 <?php
 //Below code refers to oracle-test.txt provided in tutorial 7
 
 require __DIR__ . '/#OracleFunctions.php';
 
 function printResult($result) { //prints results from a select statement
-    echo "<br><h3><font color='#2d4cb3'>Updated data from Constructor Table:</h3>";
+    echo "<br><h3><font color='#2d4cb3'>Sponsorhsip Information and Cost:</h3>";
     echo "<table class='center'>";
     echo "<tr>
-      <th><font color='#2d4cb3'>Constructor Name</th>
-      <th><font color='#2d4cb3'>Nationality</th>
-      <th><font color='#2d4cb3'>Branch Location</th>
-
+      <th><font color='#2d4cb3'>Sponsorhsip Name</th>
+      <th><font color='#2d4cb3'>Cost</th>
       </tr>";
   
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
         echo "<tr>
         <td><p align='center';>" . $row["0"] . "</p></td>
         <td><p align='center';>" . $row["1"] . "</p></td>
-        <td><p align='center';>" . $row["2"] . "</p></td>
         </tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";
@@ -55,27 +50,18 @@ function printResult($result) { //prints results from a select statement
 function handleUpdateRequest() {
   global $db_conn;
 
-  $input_constructor = $_POST['constructor_name'];
+  $input_sponsorship = $_POST['sponsorship_name'];
 
-  $old_city_name = $_POST['old_city_name'];
-  $new_city_name = $_POST['new_city_name'];
+  $new_amount = $_POST['amount'];
 
-  $tmp2 = executePlainSQL("SELECT constructor_name
-  FROM Constructors
-  WHERE city = '". $old_city_name . "'"
-);
-
-  
-  if (($input_constructor==NULL) || ($$old_city_name==NULL) || ($new_city_name==NULL)){
-    echo "<font color='red'><br />Make sure to fill all the blanks!</font>";
-  } else if (OCI_Fetch_Array($tmp2, OCI_BOTH)[0] == NULL){
-    echo "<font color='red'><br />Old city name cannot be empty.</font>";
-  } 
- 
-  executePlainSQL(" UPDATE Constructors 
-                    SET city= '". $new_city_name . "' 
-                    WHERE city= '" . $old_city_name . "' ");
-                    
+  if (($input_sponsorship==NULL) || ($new_amount==NULL)){
+    echo "<font color='red'><br />Please enter both fields. No changes made.</font>";
+  } else {
+    $result = executePlainSQL("UPDATE Sponsorship 
+                               SET amount= '". $new_amount . "'
+                               WHERE sponsorship_name = '". $input_sponsorship . "' ");
+  }
+               
   OCICommit($db_conn); 
 
 }
@@ -88,8 +74,8 @@ function handlePOSTRequest() {
     if (array_key_exists('updateQueryRequest', $_POST)) {
       handleUpdateRequest();
 
-      $result = executePlainSQL('SELECT * FROM Constructors
-                                 ORDER BY constructor_name');
+      $result = executePlainSQL('SELECT * FROM Sponsorship
+                                 ORDER BY sponsorship_name');
       printResult($result);
 
       disconnectFromDB();
@@ -104,5 +90,7 @@ if (isset($_POST['updateSubmit'])) {
 ?>
   </body>
 </html>
+
+
 
 

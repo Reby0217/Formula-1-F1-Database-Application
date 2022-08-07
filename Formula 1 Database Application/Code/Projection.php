@@ -24,11 +24,9 @@
     <input type="checkbox" name= "raceInfo[]" value="round_number" > Round Numbers <br/>
     <input type="checkbox" name= "raceInfo[]" value="lap_numbers"> Lap Numbers <br/>
     <input type="checkbox" name= "raceInfo[]" value="circuit_name"> Circuit Name <br/>
-    <br>
-
     <input type="submit" value="Project" name="ProjectSubmit">
 </form>
-  <br>
+
 
   <?php
 
@@ -37,9 +35,9 @@
   function printResult($result)
   { //prints results: Projection Table
     global $raceInfo;
-    echo "<br><h3><font color='#2d4cb3'>Projected Race Record :</h3>";
+    echo "<h3><font color='#2d4cb3'>Projected Race Record :</h3>";
     echo "<table class='center'>";
-    
+  
     foreach($raceInfo as $title){
       echo "<th><p align='center';color='#2d4cb3';>"
      . $title . "</p></th>";
