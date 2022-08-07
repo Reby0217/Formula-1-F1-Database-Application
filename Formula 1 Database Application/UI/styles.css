@@ -1,7 +1,6 @@
 :root{
     --red: #db2c20;
     --blue:#2d4cb3;
-    --lightblue: #5e75c0;
     --royalblue: #4169e1
 }
 
@@ -15,7 +14,7 @@
 }
 
 .body1 {
-    color:var(--lightblue);
+    color:var(--royalblue);
     text-align: center;
     font-size: larger;
     font-weight: bolder;
@@ -26,6 +25,7 @@
     background-image: url("background.jpeg");
     height: 100%;
     width: 100%;
+    background-attachment: fixed;
     position: absolute;
     background-size: cover;
     top: 0;
@@ -38,6 +38,7 @@
 
 .operations {
     color: var(--blue);
+
 }
 
 .center{
@@ -57,10 +58,20 @@
     background-image: url("mainPG.jpg");
     position: absolute;
     background-size: cover;
+    background-attachment: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     z-index: -1;
-    opacity: .3;
+    opacity: .2;
 }
+
+.display-inline {
+    display: inline-block;
+  }
+
+a {
+    text-align: left;
+}
+  
