@@ -17,15 +17,19 @@
   </p>
 
   <h2 class="operations">Select the race information you would like to view:</h2>
-  <form method="POST" action="Projection.php">
+  <div class="display-inline">    
+  <a><form method="POST" action="Projection.php">
     <input type="hidden" id="ProjectQueryRequest" name="ProjectQueryRequest">
     <input type="checkbox" name= "raceInfo[]"  value="race_date" > Race Date <br/>
     <input type="checkbox" name= "raceInfo[]"  value="race_name" > Race Name <br/>
     <input type="checkbox" name= "raceInfo[]" value="round_number" > Round Numbers <br/>
     <input type="checkbox" name= "raceInfo[]" value="lap_numbers"> Lap Numbers <br/>
     <input type="checkbox" name= "raceInfo[]" value="circuit_name"> Circuit Name <br/>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="submit" value="Project" name="ProjectSubmit">
-</form>
+</form></a>
+</div>
 
 
   <?php
@@ -35,12 +39,11 @@
   function printResult($result)
   { //prints results: Projection Table
     global $raceInfo;
-    echo "<h3><font color='#2d4cb3'>Projected Race Record :</h3>";
+    echo "<h3><font color='#2d4cb3'; align='center';>Projected Race Record :</h3>";
     echo "<table class='center'>";
   
     foreach($raceInfo as $title){
-      echo "<th><p align='center';color='#2d4cb3';>"
-     . $title . "</p></th>";
+      echo "<th><font color='#2d4cb3'; align='center'; >" . $title . "</th>";
     }
 
     while ($array = oci_fetch_row($result)) {
@@ -94,6 +97,7 @@
   }
 
   ?>
+
 </body>
 
 </html>

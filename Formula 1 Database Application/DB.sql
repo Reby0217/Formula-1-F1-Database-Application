@@ -51,6 +51,7 @@ CREATE TABLE Constructors(
 
 CREATE TABLE Sponsorship(
     sponsorship_name CHAR(50) PRIMARY KEY,
+    nationality CHAR(15),
     amount INTEGER
 );
 
@@ -214,11 +215,11 @@ INSERT INTO Constructors VALUES('Sauber', 'Swiss', 'Hinwil');
 
 
 -- Sponsorship
-INSERT INTO Sponsorship VALUES('McGregor Fashion Group', 130);
-INSERT INTO Sponsorship VALUES('Panasonic', 253);
-INSERT INTO Sponsorship VALUES('HB Bewaking', 55);
-INSERT INTO Sponsorship VALUES('Ferrari', 157);
-INSERT INTO Sponsorship VALUES('Alfa Romeo', 182);
+INSERT INTO Sponsorship VALUES('McGregor Fashion Group','Netherlands', 130);
+INSERT INTO Sponsorship VALUES('Panasonic','Japan', 253);
+INSERT INTO Sponsorship VALUES('HB Bewaking', 'Netherlands', 55);
+INSERT INTO Sponsorship VALUES('Ferrari', 'Italy', 157);
+INSERT INTO Sponsorship VALUES('Alfa Romeo', 'Italy', 182);
 
 -- Sponsor
 INSERT INTO Sponsor VALUES('Spyker', 'McGregor Fashion Group');
@@ -317,7 +318,7 @@ INSERT INTO HaveResults1 VALUES('32:29:33.828',4);
 INSERT INTO HaveResults2 VALUES (1, '2008-07-06', 5, '31:18:06.876', 'completed');
 INSERT INTO HaveResults2 VALUES (2, '2009-04-05', 4, '38:45:03.023', 'accident');
 INSERT INTO HaveResults2 VALUES (3, '2008-06-08', 3, '45:33:12.391', 'accident');
-INSERT INTO HaveResults2 VALUES (4, '2009-04-26', 2, '46:46:05.486', 'disqualified');
+INSERT INTO HaveResults2 VALUES (4, '2009-04-26', 2, '46:46:05.486', 'disqualification');
 INSERT INTO HaveResults2 VALUES (5, '2009-11-01', 4, '32:29:33.828', 'completed');
 
 
@@ -355,5 +356,3 @@ INSERT INTO Participate VALUES ('2009-04-05', 'TF102', '1993-05-23', 'James', 'S
 INSERT INTO Participate VALUES ('2008-06-08', 'A522', '1985-09-07', 'Shinji', 'Nakano');
 INSERT INTO Participate VALUES ('2009-04-26', 'AT03', '1994-07-25', 'Martin', 'Brundle');
 INSERT INTO Participate VALUES ('2009-11-01', 'AMR22', '1995-06-07', 'Aguri', 'Suzuki');
-
-

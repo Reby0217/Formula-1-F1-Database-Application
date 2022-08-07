@@ -19,10 +19,12 @@
   <h2 class="operations">Update Sponsorship Cost</h2>
   <form method="POST" action="Update.php"> 
     <input type="hidden" id="updateQueryRequest" name="updateQueryRequest">
-    Sponsorship Name: <input type="text" name="sponsorship_name"> <br /><br />
-    New Cost: <input type="integer" name="amount"> <br /><br />
+    Sponsorship Name: <input type="text" name="sponsorship_name"><br />
+    New Cost: <input type="integer" name="amount"><br>
+    <br>
     <input type="submit" value="Update" name="updateSubmit"></p>
   </form>
+
 
 <?php
 //Below code refers to oracle-test.txt provided in tutorial 7
@@ -34,7 +36,7 @@ function printResult($result) { //prints results from a select statement
     echo "<table class='center'>";
     echo "<tr>
       <th><font color='#2d4cb3'>Sponsorhsip Name</th>
-      <th><font color='#2d4cb3'>Cost(in Million $)</th>
+      <th><font color='#2d4cb3'>Cost (million $)</th>
       </tr>";
   
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
@@ -54,7 +56,7 @@ function handleUpdateRequest() {
   $new_amount = $_POST['amount'];
 
   if (($input_sponsorship==NULL) || ($new_amount==NULL)){
-    echo "<font color='red'><br />Please enter both fields. No changes made.</font>";
+    echo "<font color='#db2c20'><br />Please enter both fields. No changes made.</font>";
   } else {
     $result = executePlainSQL("UPDATE Sponsorship 
                                SET amount= '". $new_amount . "'
@@ -74,7 +76,8 @@ function handlePOSTRequest() {
     if (array_key_exists('updateQueryRequest', $_POST)) {
       handleUpdateRequest();
 
-      $result = executePlainSQL('SELECT * FROM Sponsorship
+      $result = executePlainSQL('SELECT sponsorship_name, amount
+                                 FROM Sponsorship
                                  ORDER BY sponsorship_name');
       printResult($result);
 
@@ -88,7 +91,11 @@ if (isset($_POST['updateSubmit'])) {
 }
 
 ?>
+
   </body>
 </html>
+
+
+
 
 

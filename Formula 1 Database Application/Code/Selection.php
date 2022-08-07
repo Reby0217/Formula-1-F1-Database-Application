@@ -21,7 +21,9 @@
         <input type="hidden" id="selectQueryRequest" name="selectQueryRequest">
         Nationality: <input type="text" , name="Nationality"> 
         </br>
-        Born in year: <input type="text" , name="Year"> <input type="submit" value="Select" name="NBSubmit"></br>
+        Born in year: <input type="text" , name="Year"><br>
+        <br> 
+        <input type="submit" value="Select" name="NBSubmit"></br>
     </form>
 
     <h2 class="operations">Select Constructors by:</h2>
@@ -29,9 +31,12 @@
         <input type="hidden" id="selectQueryRequest1" name="selectQueryRequest1">
         Nationality: <input type="text" , name="C-Nationality">
         </br>
-        City: <input type="text" , name="City"> <input type="submit" value="Select" name="CNSubmit"></br>
+        City: <input type="text" , name="City"><br></a>
+        <br>
+        <input type="submit" value="Select" name="CNSubmit"></br>
     </form>
     <br>
+    </div>
 
     <?php
     
@@ -45,7 +50,7 @@
         echo "<tr>
          <th><font color='#2d4cb3'>First Name</th>
          <th><font color='#2d4cb3'>Last Name</th>
-         <th><font color='#2d4cb3'>Date of Birth</th>
+         <th><font color='#2d4cb3'>Birthday</th>
          <th><font color='#2d4cb3'>Nationality</th>
          <th><font color='#2d4cb3'>Constructor</th>
         </tr>";
@@ -64,11 +69,11 @@
 
         if ($hasResult == false) {
             echo "<tr>
-            <td><p align='center'; style='color:red';>         </p></td>
-            <td><p align='center'; style='color:red';>         </p></td>
-            <td><p               ; style='color:red';>No Result</p></td>
-            <td><p align='center'; style='color:red';>         </p></td>
-            <td><p align='center'; style='color:red';>         </p></td>
+            <td><p align='center'; style='color:#db2c20';>         </p></td>
+            <td><p align='center'; style='color:#db2c20';>         </p></td>
+            <td><p               ; style='color:#db2c20';>No Result</p></td>
+            <td><p align='center'; style='color:#db2c20';>         </p></td>
+            <td><p align='center'; style='color:#db2c20';>         </p></td>
             </tr>";
         }
         echo "</table>";
@@ -94,9 +99,9 @@
         }
         if ($hasResult == false) {
             echo "<tr>
-            <td><p align='center'; style='color:red';>         </p></td>
-            <td><p align='center'; style='color:red';>No Result</p></td>
-            <td><p align='center'; style='color:red';>         </p></td></tr>";
+            <td><p align='center'; style='color:#db2c20';>         </p></td>
+            <td><p align='center'; style='color:#db2c20';>No Result</p></td>
+            <td><p align='center'; style='color:#db2c20';>         </p></td></tr>";
         }
         echo "</table>";
     }
@@ -131,7 +136,7 @@
                 printResult($check);
                 
             } else {
-                echo "<font color='red'><br /> Please enter a field.</font>";
+                echo "<font color='#db2c20'><br /> Please enter a field.</font>";
             }
  
 
@@ -165,7 +170,7 @@
             printResult1($check1);
 
         } else {
-            echo "<font color='red'><br /> Please enter a field.</font>";
+            echo "<font color='#db2c20'><br /> Please enter a field.</font>";
         }
 
         
@@ -190,6 +195,7 @@
     }
 
     ?>
+
 </body>
 
 </html>

@@ -10,6 +10,8 @@
   <header class="page-header">
     <h1>Formula 1 Database Application </h1>
   </header>
+
+
   <p text-align='left'>Return to Mainpage:
     <a href="https://www.students.cs.ubc.ca/~douxinyi/m4/MainUI.php">
       <button>Back</button>
@@ -17,22 +19,29 @@
   </p>
 
   <h2 class="operations">Adding new Circuits</h2>
-  <form method="POST" action="InsertAndDeleteUI.php">
+   
+   <form method="POST" action="InsertAndDeleteUI.php">
     <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
-    Circuit Name: <input type="text" name="circuit_name"> <br /><br />
-    <p>Leave below entries empty if you do not have detailed information.</p>
-    City: <input type="text" name="city"> Country: <input type="text" name="country"> <br /><br />
-    Longitude: <input type="real" name="longitude"> Latitude: <input type="real" name="latitude"> <br /><br />
+    City: <input type="text" name="city"><br/>
+    Circuit Name: <input type="text" name="circuit_name"><br/>
+    Country: <input type="text" name="country"><br/>
+    Longitude: <input type="real" name="longitude"><br/>
+    Latitude: <input type="real" name="latitude"><br/> 
+    <br> 
+   
     <input type="submit" value="Insert" name="insertSubmit"></p>
+    </form>
 
-  </form>
 
   <h2 class="operations">Delete Circuit</h2>
+ 
   <form method="POST" action="InsertAndDeleteUI.php">
     <input type="hidden" id="deleteQueryRequest" name="deleteQueryRequest">
-    Delete Circuit Name: <input type="text" name="circuit_name"> <br /><br />
+    Circuit Name: <input type="text" name="circuit_name"><br>
+    <br> 
     <input type="submit" value="Delete" name="deleteSubmit"></p>
   </form>
+  
 
   <br>
 
@@ -41,7 +50,7 @@
   require __DIR__ . '/#OracleFunctions.php';
 
   function printResult($result)
-  { //prints results from a select statement
+  {
     echo "<br><h3><font color='#2d4cb3'>Circuit Information:</h3>";
     echo "<table class='center'>";
     echo "<tr>
@@ -91,8 +100,7 @@
         }
     }
     $result = preg_replace('/[^a-zA-Z0-9_ -]/s','',$missingArray);
-      echo "<h2 style='color:red;'> Please fill '" .implode("','",$result)."'<br> </h2>" ;;
-    
+      echo "<p style='color:#db2c20;'> Please fill in '" .implode("', '",$result)."'<br> No changes made.</p>" ;;
   }
 
     if ($entryStatus) {
@@ -112,8 +120,7 @@
                           WHERE circuit_name = '" . $delete_name . "'");
     $row = oci_fetch_row($ans);
     if ($row == false) {
-      echo "<h2 style='color:red;'> Delete failed, circuit does not exist. </h2>" ;
-      echo "<br>";
+      echo "<p style='color:#db2c20;'> Delete failed, circuit does not exist.</p>" ;
     }
     $row = executePlainSQL("DELETE FROM Circuit_2
                           WHERE circuit_name = '" . $delete_name . "'");
@@ -143,6 +150,7 @@
   }
 
   ?>
+
 </body>
 
 </html>

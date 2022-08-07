@@ -13,42 +13,44 @@
   <h2 class="operations">
     Welcome! Please select below options:</h2>
     <br />
-    
-<form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/InsertAndDeleteUI.php">
+
+<div class="display-inline">    
+<a><form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/InsertAndDeleteUI.php">
     <p>Modify Current Circuits:&nbsp;
-        <input type="submit" value="Go" name="Circuit"></p>
-</form>
+        <input class="mainpage-submit mainpage-submit-field" type="submit" value="Go" name="Circuit"></p>
+</form></a>
 
-<form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Update.php">
+<a><form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Update.php">
     <p>Sponsorship Information:&nbsp;
-        <input type="submit" value="Go" name="Sponsorship">
+        <input class="mainpage-submit mainpage-submit-field" type="submit" value="Go" name="Sponsorship">
     </p>
-</form>
+</form></a>
 
-<form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Selection.php">
+<a><form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Selection.php">
     <p>Selectable Information:&nbsp;
-        <input type="submit" value="Go" name="Selectable Info">
+        <input class="mainpage-submit mainpage-submit-field" type="submit" value="Go" name="Selectable Info">
     </p>
-</form>
+</form></a>
 
-<form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Projection.php">
+<a><form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Projection.php">
     <p>Information About the Race Record:&nbsp;
-        <input type="submit" value="Go" name="Project Race Record">
+        <input class="mainpage-submit mainpage-submit-field" type="submit" value="Go" name="Project Race Record">
     </p>
-</form>
+</form></a>
 
-<form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Join.php">
+<a><form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Join.php">
     <p>Find out where and when Races take Place:&nbsp;
-        <input type="submit" value="Go" name="Races take place">
+        <input class="mainpage-submit mainpage-submit-field" type="submit" value="Go" name="Races take place">
     </p>
-</form>
+</form></a>
 
-<form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Remaining.php">
+<a><form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Remaining.php">
     <p>Here are some extra info if you want to know:&nbsp;
-        <input type="submit" value="Go" name="Additional Info">
+        <input class="mainpage-submit mainpage-submit-field" type="submit" value="Go" name="Additional Info">
     </p>
-</form>
+<a></form></a>
 
+    </div>
 
     </body>
 </html>

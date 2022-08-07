@@ -46,8 +46,8 @@
         }
 
         if ($hasResult == false) {
-            echo "<tr><td><p align='center'; style='color:red';>No Race</p></td>
-            <td><p align='center'; style='color:red';>Found</p></td>
+            echo "<tr><td><p align='center'; style='color:#db2c20';>No Race</p></td>
+            <td><p align='center'; style='color:#db2c20';>Found</p></td>
 
             </tr>";
         }
@@ -64,7 +64,7 @@
         $racename = $_POST['RaceName'];
 
         if ($racename==NULL) {
-            echo "<font color='red'><br />Please enter a race name.</font>";
+            echo "<font color='#db2c20'><br />Please enter a race name.</font>";
 
         } else {
 
