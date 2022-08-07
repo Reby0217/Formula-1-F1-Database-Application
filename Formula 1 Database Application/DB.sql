@@ -21,8 +21,6 @@ drop table President;
 drop table OfficialStaff;
 drop table Broadcasters;
 
-
-
 CREATE TABLE Circuit_1(
     city CHAR(15) PRIMARY KEY,
     time_zone CHAR(15)
@@ -216,11 +214,11 @@ INSERT INTO Constructors VALUES('Sauber', 'Swiss', 'Hinwil');
 
 
 -- Sponsorship
-INSERT INTO Sponsorship VALUES('McGregor Fashion Group', 100000);
-INSERT INTO Sponsorship VALUES('Panasonic', 250000);
-INSERT INTO Sponsorship VALUES('HB Bewaking', 50000);
-INSERT INTO Sponsorship VALUES('Ferrari', 150000);
-INSERT INTO Sponsorship VALUES('Alfa Romeo', 180000);
+INSERT INTO Sponsorship VALUES('McGregor Fashion Group', 130);
+INSERT INTO Sponsorship VALUES('Panasonic', 253);
+INSERT INTO Sponsorship VALUES('HB Bewaking', 55);
+INSERT INTO Sponsorship VALUES('Ferrari', 157);
+INSERT INTO Sponsorship VALUES('Alfa Romeo', 182);
 
 -- Sponsor
 INSERT INTO Sponsor VALUES('Spyker', 'McGregor Fashion Group');
@@ -234,7 +232,7 @@ INSERT INTO EmployTeamMembers VALUES('Colin','Kolles','1967-12-13','German','Spy
 INSERT INTO EmployTeamMembers VALUES('Tadashi','Yamashina','1951-05-08','Japanese','Spyker');
 INSERT INTO EmployTeamMembers VALUES('Bob','Hoogenboom','1949-05-06','Netherlands','Boro');
 INSERT INTO EmployTeamMembers VALUES('James', 'Steve', '1973-05-23', 'UK', 'Boro');
-INSERT INTO EmployTeamMembers VALUES('Jobs','Bond','1957-08-24','United State','Jordan');
+INSERT INTO EmployTeamMembers VALUES('Jobs','Bond','1957-08-24','United States','Jordan');
 INSERT INTO EmployTeamMembers VALUES('Mark','Webber','1997-04-05','Austrilian','Jordan');
 INSERT INTO EmployTeamMembers VALUES('James','Speed', '1993-05-23', 'United States','Sauber');
 INSERT INTO EmployTeamMembers VALUES('Shinji','Nakano','1985-09-07','Japanese','Sauber');
@@ -307,6 +305,7 @@ INSERT INTO DriveSafetyCars VALUES ('Lamborghini Countach','Bernd Maylander','Bo
 INSERT INTO DriveSafetyCars VALUES ('Ford Escort RS Cosworth','Bernd Maylander','Jordan');
 INSERT INTO DriveSafetyCars VALUES ('Mercedes-AMG GT','Bernd Maylander','Sauber');
 
+
 --HaveResult1
 INSERT INTO HaveResults1 VALUES('31:18:06.876',3);
 INSERT INTO HaveResults1 VALUES('38:45:03.023',9);
@@ -356,4 +355,5 @@ INSERT INTO Participate VALUES ('2009-04-05', 'TF102', '1993-05-23', 'James', 'S
 INSERT INTO Participate VALUES ('2008-06-08', 'A522', '1985-09-07', 'Shinji', 'Nakano');
 INSERT INTO Participate VALUES ('2009-04-26', 'AT03', '1994-07-25', 'Martin', 'Brundle');
 INSERT INTO Participate VALUES ('2009-11-01', 'AMR22', '1995-06-07', 'Aguri', 'Suzuki');
+
 
