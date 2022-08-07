@@ -20,7 +20,7 @@
 </form>
 
 <form method="GET" action="https://www.students.cs.ubc.ca/~douxinyi/m4/Update.php">
-    <p>Update Sponsorship Information:&nbsp;
+    <p>Sponsorship Information:&nbsp;
         <input type="submit" value="Go" name="Sponsorship">
     </p>
 </form>

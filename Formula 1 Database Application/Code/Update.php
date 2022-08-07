@@ -18,13 +18,12 @@
 
   <h2 class="operations">Update Sponsorship Cost</h2>
   <form method="POST" action="Update.php"> 
-            <input type="hidden" id="updateQueryRequest" name="updateQueryRequest">
-           Sponsorship Name: <input type="text" name="sponsorship_name"> <br /><br />
-           New Cost: <input type="integer" name="amount"> <br /><br />
+    <input type="hidden" id="updateQueryRequest" name="updateQueryRequest">
+    Sponsorship Name: <input type="text" name="sponsorship_name"> <br /><br />
+    New Cost: <input type="integer" name="amount"> <br /><br />
+    <input type="submit" value="Update" name="updateSubmit"></p>
+  </form>
 
-            <input type="submit" value="Update" name="updateSubmit"></p>
-        </form>
-     
 <?php
 //Below code refers to oracle-test.txt provided in tutorial 7
 
@@ -35,7 +34,7 @@ function printResult($result) { //prints results from a select statement
     echo "<table class='center'>";
     echo "<tr>
       <th><font color='#2d4cb3'>Sponsorhsip Name</th>
-      <th><font color='#2d4cb3'>Cost</th>
+      <th><font color='#2d4cb3'>Cost(in Million $)</th>
       </tr>";
   
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
@@ -61,6 +60,7 @@ function handleUpdateRequest() {
                                SET amount= '". $new_amount . "'
                                WHERE sponsorship_name = '". $input_sponsorship . "' ");
   }
+ 
                
   OCICommit($db_conn); 
 
@@ -90,7 +90,5 @@ if (isset($_POST['updateSubmit'])) {
 ?>
   </body>
 </html>
-
-
 
 
