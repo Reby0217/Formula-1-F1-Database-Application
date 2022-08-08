@@ -27,11 +27,11 @@ CREATE TABLE Circuit_1(
 );
 
 CREATE TABLE Circuit_2(
-    city CHAR(15),
+    city CHAR(15) NOT NULL,
     circuit_name CHAR(50) PRIMARY KEY,
-    country CHAR(15),
-    longitude REAL,
-    latitude REAL
+    country CHAR(15) NOT NULL,
+    longitude REAL NOT NULL,
+    latitude REAL NOT NULL
 );
 
 CREATE TABLE RacesTakePlace(
