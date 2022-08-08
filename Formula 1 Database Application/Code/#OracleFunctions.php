@@ -45,7 +45,6 @@ function executeBoundSQL($cmdstr, $list)
 
   if (!$statement) {
 
-    echo "//" ;
     $e = OCI_Error($db_conn);
     echo htmlentities($e['message']);
     $success = False;
@@ -59,7 +58,7 @@ function executeBoundSQL($cmdstr, $list)
 
     $r = OCIExecute($statement, OCI_DEFAULT);
     if (!$r) {
-      echo "//" ;
+
       $e = OCI_Error($statement); 
       echo "<br>";
       $success = False;

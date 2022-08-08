@@ -94,8 +94,3 @@ if (isset($_POST['updateSubmit'])) {
 
   </body>
 </html>
-
-
-
-
-

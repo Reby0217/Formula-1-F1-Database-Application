@@ -77,8 +77,6 @@
   {
     global $db_conn;
     $entryStatus = TRUE;
-
-    //Getting the values from user and insert data into the table
     $tuple = array(
       ":city" => $_POST['city'],
       ":circuit_name" => $_POST['circuit_name'],
@@ -112,8 +110,6 @@
   function handleDeleteRequest()
   {
     global $db_conn;
-
-    //Getting the values delete from table
     $delete_name = $_POST['circuit_name'];
     $ans = executePlainSQL("SELECT circuit_name 
                           FROM Circuit_2

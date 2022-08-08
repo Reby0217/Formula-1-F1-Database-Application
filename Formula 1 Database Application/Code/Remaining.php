@@ -27,7 +27,7 @@
 
     <a><form method="POST" action="Remaining.php"> 
         <input type="hidden" id="aggregationQueryRequest" name="aggregationQueryRequest">
-        Find out the MAX amount of sponsorship cost: 
+        Find out the MAX amount of sponsorship cost for each country: 
         <input type="submit" value="Find" name="aggSubmit"></p>
     </form></a>
 
@@ -57,8 +57,8 @@
 
     function printResultAG($result)
     { while ($row = oci_fetch_row($result)) {
-        echo "<h3><font color='#228b22'> Max sponsorship cost:</h3>";
-        echo "<p style = 'color:#228b22'; align='center';> $" . $row[0] . " million</p>";
+        echo "<h3><font color='#228b22'> Max cost among all " . $row[0] . " sponsorship:</h3>";
+        echo "<p style = 'color:#228b22'; align='center';> $" . $row[1] . " million</p>";
         }
     }
 
@@ -94,8 +94,9 @@
     function handleAggregationRequest()
     {
         global $db_conn;
-        $result = executePlainSQL("SELECT MAX(s.amount)
-                                   FROM Sponsorship s");
+        $result = executePlainSQL("SELECT s.nationality, MAX(s.amount)
+                                   FROM Sponsorship s
+                                   GROUP BY s.nationality");
 
         printResultAG($result);
         OCICommit($db_conn);
