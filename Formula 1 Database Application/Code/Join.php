@@ -78,10 +78,6 @@
         $check = executePlainSQL($try);
         printResult($check);
     }
-
-        // if ($check != false) {
-        //     printResult($check);
-        // }
      
         OCICommit($db_conn);
     }
