@@ -21,7 +21,7 @@
         <input type="hidden" id="selectQueryRequest" name="selectQueryRequest">
         Nationality: <input type="text" , name="Nationality"> 
         </br>
-        Born in year: <input type="text" , name="Year"><br>
+        Born after year: <input type="text" , name="Year"><br>
         <br> 
         <input type="submit" value="Select" name="NBSubmit"></br>
     </form>
@@ -113,20 +113,21 @@
         //Getting the values from user and insert data into the table
         $nationality = $_POST['Nationality'];
         $Year = $_POST['Year'];
-
+   
             if(($nationality != Null) && ($Year != Null)){
             $check = executePlainSQL("SELECT * 
-                                      FROM EmployTeamMembers
+                                      FROM  EmployTeamMembers
                                       WHERE nationality = '" . $nationality . "'
-                                      AND REGEXP_LIKE(date_of_birth, '^$Year(*)')"
-                               );
+                                      AND (TO_DATE($Year,'YYYY') < TO_DATE(date_of_birth,'YYYY-MM-DD'))
+                                      ");
 
                 printResult($check);
                 
             } else if (($nationality == Null) && ($Year != Null)) {
                 $check = executePlainSQL("SELECT * 
                                           FROM EmployTeamMembers
-                                          WHERE REGEXP_LIKE(date_of_birth, '^$Year(*)')");
+                                          WHERE TO_DATE($Year,'YYYY') < TO_DATE(date_of_birth,'YYYY-MM-DD')
+                                          ");
                 printResult($check);
 
             } else if(($nationality != Null) && ($Year == Null)){
