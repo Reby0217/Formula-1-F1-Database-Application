@@ -70,7 +70,7 @@ function connectToDB()
   {
     global $db_conn;
     //change to your cwl and password
-    $db_conn = OCILogon("ora_douxinyi", "a84855964", "dbhost.students.cs.ubc.ca:1522/stu");
+    $db_conn = OCILogon("ora_kej19", "a16752370", "dbhost.students.cs.ubc.ca:1522/stu");
     if ($db_conn) {
       debugAlertMessage("Database is Connected");
       return true;
