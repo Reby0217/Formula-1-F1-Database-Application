@@ -5,3 +5,4 @@
 
 - Using the UBC CS department’s Oracle database system and PHP.
 - Frontend: HTML and CSS
+- Developed in teams of three.
