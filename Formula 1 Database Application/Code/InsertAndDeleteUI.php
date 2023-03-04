@@ -13,7 +13,7 @@
 
 
   <p text-align='left'>Return to Mainpage:
-    <a href="https://www.students.cs.ubc.ca/~kej19/MainUI.php">
+    <a href="https://www.students.cs.ubc.ca/~douxinyi/m4/MainUI.php">
       <button>Back</button>
     </a>
   </p>
